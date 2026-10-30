@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450">
+  <defs>
+    <pattern id="infopuntos" width="16" height="16" patternUnits="userSpaceOnUse">
+      <circle cx="3" cy="3" r="1.5" fill="#161d16" opacity="0.08" />
+    </pattern>
+  </defs>
+  <rect width="800" height="450" fill="#f3fcf0" stroke="#161d16" stroke-width="4"/>
+  <rect width="800" height="450" fill="url(#infopuntos)"/>
+  
+  <rect x="30" y="25" width="740" height="50" fill="#161d16"/>
+  <text x="400" y="58" font-family="'Anton', Impact, sans-serif" font-size="24" fill="#f3fcf0" text-anchor="middle" letter-spacing="2">DIAGRAMA OFICIAL DE LECTURA ORIENTAL (DERECHA A IZQUIERDA)</text>
+  
+  <rect x="70" y="100" width="310" height="300" fill="#ffffff" stroke="#161d16" stroke-width="3"/>
+  <text x="225" y="130" font-family="'Anton', Impact, sans-serif" font-size="16" fill="#5b403f" text-anchor="middle">PÁGINA FINAL (IZQUIERDA)</text>
+  
+  <rect x="90" y="150" width="130" height="110" fill="#edf6ea" stroke="#161d16" stroke-width="2"/>
+  <circle cx="115" cy="175" r="15" fill="#b7102a"/>
+  <text x="115" y="181" font-family="'JetBrains Mono', monospace" font-size="14" font-weight="bold" fill="#ffffff" text-anchor="middle">3</text>
+  <text x="155" y="210" font-family="'Hanken Grotesk', sans-serif" font-size="12" fill="#161d16">Tercer panel</text>
+  
+  <rect x="235" y="150" width="125" height="230" fill="#e7f0e5" stroke="#161d16" stroke-width="2"/>
+  <circle cx="260" cy="175" r="15" fill="#b7102a"/>
+  <text x="260" y="181" font-family="'JetBrains Mono', monospace" font-size="14" font-weight="bold" fill="#ffffff" text-anchor="middle">4</text>
+  <text x="297" y="260" font-family="'Hanken Grotesk', sans-serif" font-size="12" fill="#161d16" text-anchor="middle">Cuarto panel</text>
+  
+  <rect x="90" y="275" width="130" height="105" fill="#dce5d9" stroke="#161d16" stroke-width="2"/>
+  <circle cx="115" cy="300" r="15" fill="#b7102a"/>
+  <text x="115" y="306" font-family="'JetBrains Mono', monospace" font-size="14" font-weight="bold" fill="#ffffff" text-anchor="middle">5</text>
+  <text x="155" y="335" font-family="'Hanken Grotesk', sans-serif" font-size="12" fill="#161d16">Cierre de página</text>
+  
+  <line x1="400" y1="95" x2="400" y2="405" stroke="#161d16" stroke-width="6" stroke-dasharray="6,6"/>
+  
+  <rect x="420" y="100" width="310" height="300" fill="#ffffff" stroke="#161d16" stroke-width="3"/>
+  <text x="575" y="130" font-family="'Anton', Impact, sans-serif" font-size="16" fill="#b7102a" text-anchor="middle">¡INICIA AQUÍ! (DERECHA)</text>
+  
+  <rect x="585" y="150" width="125" height="110" fill="#ffdad6" stroke="#b7102a" stroke-width="3"/>
+  <circle cx="610" cy="175" r="15" fill="#b7102a"/>
+  <text x="610" y="181" font-family="'JetBrains Mono', monospace" font-size="14" font-weight="bold" fill="#ffffff" text-anchor="middle">1</text>
+  <text x="647" y="210" font-family="'Hanken Grotesk', sans-serif" font-size="12" font-weight="bold" fill="#161d16" text-anchor="middle">Primer panel</text>
+  
+  <rect x="440" y="150" width="130" height="110" fill="#edf6ea" stroke="#161d16" stroke-width="2"/>
+  <circle cx="465" cy="175" r="15" fill="#b7102a"/>
+  <text x="465" y="181" font-family="'JetBrains Mono', monospace" font-size="14" font-weight="bold" fill="#ffffff" text-anchor="middle">2</text>
+  <text x="505" y="210" font-family="'Hanken Grotesk', sans-serif" font-size="12" fill="#161d16">Segundo panel</text>
+  
+  <rect x="440" y="275" width="270" height="105" fill="#e7f0e5" stroke="#161d16" stroke-width="2"/>
+  <text x="575" y="330" font-family="'Hanken Grotesk', sans-serif" font-size="13" fill="#161d16" text-anchor="middle">Panel panorámico inferior</text>
+
+  <path d="M730 85 L420 85" stroke="#b7102a" stroke-width="4" stroke-linecap="round"/>
+  <polygon points="415,85 435,77 435,93" fill="#b7102a"/>
+  <text x="575" y="78" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="bold" fill="#b7102a" text-anchor="middle">DIRECCIÓN GENERAL DE LECTURA (1 → 2 → 3 → 4 → 5)</text>
+</svg>

@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MANGA VOID | Catálogo Oficial de Manga y Ediciones Físicas</title>
+  <meta name="description" content="Explora el catálogo completo de Manga Void: más de 12 series destacadas en formatos tankōbon, kanzenban y ómnibus. Envíos a todo el Ecuador.">
+  
+  <!-- CSS EXTERNO: Hoja de estilos principal del sitio web -->
+  <link rel="stylesheet" href="css/styles.css">
+
+  <!-- ========================================================================
+       5.1 CSS INTERNO (ESTILOS EXCLUSIVOS DE ESTA PÁGINA)
+       Define cromatismo de etiquetas de catálogo (HOT, SALE, NUEVO, OMNIBUS),
+       barra de ordenamiento visual y panel de filtros laterales.
+       ======================================================================== -->
+  <style>
+    /* <!-- CSS INTERNO: Estilos específicos para catálogo, filtros y etiquetas --> */
+    
+    /* Encabezado visual del catálogo */
+    .cabecera-catalogo {
+      background-color: var(--color-tinta);
+      color: var(--color-papel);
+      padding: 32px 0;
+      border-bottom: 4px solid var(--color-primario);
+      margin-bottom: 24px;
+    }
+
+    .cabecera-catalogo h1 {
+      color: #ffffff;
+      margin-bottom: 6px;
+    }
+
+    .cabecera-catalogo p {
+      color: #dce5d9;
+      font-size: 1.1rem;
+      margin-bottom: 0;
+    }
+
+    /* Barra de conteo de resultados y filtros rápidos */
+    .barra-estado-catalogo {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: var(--color-superficie);
+      border: 2px solid var(--color-tinta);
+      box-shadow: var(--sombra-dura-pequena);
+      padding: 12px 18px;
+      margin-bottom: 24px;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .conteo-mangas {
+      font-family: var(--fuente-etiquetas);
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--color-tinta);
+    }
+
+    .selector-orden {
+      font-family: var(--fuente-etiquetas);
+      font-size: 0.85rem;
+      padding: 6px 12px;
+      border: 2px solid var(--color-tinta);
+      background-color: var(--color-papel);
+      cursor: pointer;
+    }
+
+    /* Reglas cromáticas exclusivas de las etiquetas del catálogo */
+    .etiqueta-hot {
+      background-color: #b7102a;
+      color: #ffffff;
+      border: 1px solid #161d16;
+      box-shadow: 2px 2px 0 #161d16;
+    }
+
+    .etiqueta-sale {
+      background-color: #485f84;
+      color: #ffffff;
+      border: 1px solid #161d16;
+      box-shadow: 2px 2px 0 #161d16;
+    }
+
+    .etiqueta-nuevo {
+      background-color: #286182;
+      color: #ffffff;
+      border: 1px solid #161d16;
+      box-shadow: 2px 2px 0 #161d16;
+    }
+
+    .etiqueta-omnibus {
+      background-color: #161d16;
+      color: #f3fcf0;
+      border: 1px solid #b7102a;
+      box-shadow: 2px 2px 0 #b7102a;
+    }
+
+    /* Estilo de la guía paso a paso en el Aside lateral */
+    .caja-pasos-compra {
+      background-color: var(--color-superficie-baja);
+      border: 2px dashed var(--color-tinta);
+      padding: 14px;
+      margin-top: 18px;
+    }
+
+    .caja-pasos-compra ol {
+      padding-left: 20px;
+      font-size: 0.9rem;
+      line-height: 1.5;
+    }
+
+    .caja-pasos-compra li {
+      margin-bottom: 8px;
+    }
+
+    .caja-pasos-compra li:last-child {
+      margin-bottom: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ========================================================================
+       ENCABEZADO PRINCIPAL (HEADER + NAV + BUSCADOR)
+       Semántica: <header>, <nav>
+       ======================================================================== -->
+  <header id="encabezado-sitio">
+    <div class="contenedor barra-navegacion">
+      
+      <!-- Logo de Manga Void -->
+      <a href="index.html" class="logo-sitio" title="Inicio - Manga Void">
+        <img src="img/logo.svg" alt="Logotipo oficial de Manga Void en rojo carmesí y tinta negra" width="220" height="42">
+      </a>
+
+      <!-- Menú principal con enlace actual resaltado -->
+      <nav aria-label="Navegación principal del sitio">
+        <div class="menu-principal">
+          <a href="index.html">Inicio</a>
+          <a href="catalogo.html" class="enlace-activo" aria-current="page">Catálogo</a>
+          <a href="pagina3.html">Guía del Coleccionista</a>
+        </div>
+      </nav>
+
+      <!-- Formulario de búsqueda accesible -->
+      <form class="formulario-busqueda" action="#" method="get" role="search">
+        <label for="buscar-manga-catalogo" style="position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); border: 0;">Buscar mangas en el catálogo</label>
+        <input type="search" id="buscar-manga-catalogo" name="q" placeholder="Buscar por título, autor o demografía..." required>
+        <button type="submit" aria-label="Ejecutar búsqueda">BUSCAR</button>
+      </form>
+
+    </div>
+  </header>
+
+  <!-- ========================================================================
+       BANNER DE TÍTULO DE PÁGINA
+       ======================================================================== -->
+  <div class="cabecera-catalogo">
+    <div class="contenedor">
+      <h1>CATÁLOGO GENERAL DE MANGAS</h1>
+      <p>Ediciones oficiales físicas importadas · Shonen, Seinen, Shojo y Josei</p>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       CONTENIDO PRINCIPAL (MAIN CON LAYOUT DE 2 COLUMNAS: ASIDE + SECTION)
+       Semántica: <main>, <aside>, <section>, <article>, <figure>, <figcaption>
+       ======================================================================== -->
+  <main class="contenedor">
+
+    <!-- Barra horizontal de resumen y ordenamiento -->
+    <div class="barra-estado-catalogo">
+      <span class="conteo-mangas">Mostrando 12 de 12 volúmenes físicos disponibles</span>
+      <div>
+        <label for="orden-mangas" style="font-family: var(--fuente-etiquetas); font-size: 0.85rem; font-weight: bold; margin-right: 6px;">Ordenar por:</label>
+        <select id="orden-mangas" class="selector-orden">
+          <option value="populares">Más populares (HOT)</option>
+          <option value="recientes">Novedades recientes</option>
+          <option value="precio-menor">Precio: Menor a Mayor</option>
+          <option value="precio-mayor">Precio: Mayor a Menor</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Layout en Grid: Aside Lateral + Cuadrícula de 12 Artículos -->
+    <div class="layout-catalogo">
+
+      <!-- --------------------------------------------------------------------
+           ASIDE LATERAL: FILTROS VISUALES Y GUÍA DE COMPRA
+           Semántica: <aside>
+           -------------------------------------------------------------------- -->
+      <aside class="aside-filtros" aria-label="Filtros del catálogo y ayuda de compra">
+        
+        <h3 style="border-bottom: 2px solid var(--color-tinta); padding-bottom: 8px; margin-bottom: 16px;">FILTRAR CATÁLOGO</h3>
+
+        <!-- Filtro por Demografía -->
+        <div class="grupo-filtro">
+          <h4>DEMOGRAFÍA</h4>
+          <ul>
+            <li style="margin-bottom: 6px;"><a href="catalogo.html" style="font-weight: bold; color: var(--color-primario);">▸ Todos los géneros (12)</a></li>
+            <li style="margin-bottom: 6px;"><a href="catalogo.html">Shonen (4)</a></li>
+            <li style="margin-bottom: 6px;"><a href="catalogo.html">Seinen (4)</a></li>
+            <li style="margin-bottom: 6px;"><a href="catalogo.html">Shojo (2)</a></li>
+            <li style="margin-bottom: 6px;"><a href="catalogo.html">Josei (2)</a></li>
+          </ul>
+        </div>
+
+        <!-- Filtro por Formato -->
+        <div class="grupo-filtro">
+          <h4>FORMATO DE EDICIÓN</h4>
+          <ul>
+            <li style="margin-bottom: 6px;"><a href="pagina3.html#ediciones">Tankōbon estándar (7)</a></li>
+            <li style="margin-bottom: 6px;"><a href="pagina3.html#ediciones">Kanzenban coleccionista (2)</a></li>
+            <li style="margin-bottom: 6px;"><a href="pagina3.html#ediciones">Ómnibus 2 en 1 (2)</a></li>
+            <li style="margin-bottom: 6px;"><a href="pagina3.html#ediciones">Edición de Lujo cartoné (1)</a></li>
+          </ul>
+        </div>
+
+        <!-- Filtro por Rango de Precio -->
+        <div class="grupo-filtro">
+          <h4>RANGO DE PRECIO</h4>
+          <ul>
+            <li style="margin-bottom: 6px;">Menos de $12.00 (3 tomos)</li>
+            <li style="margin-bottom: 6px;">$12.00 a $16.00 (6 tomos)</li>
+            <li style="margin-bottom: 6px;">Más de $16.00 (3 tomos)</li>
+          </ul>
+        </div>
+
+        <!-- Bloque informativo Cómo Comprar -->
+        <div class="caja-pasos-compra">
+          <h4 style="color: var(--color-tinta); margin-bottom: 8px;">¿CÓMO COMPRAR?</h4>
+          <ol>
+            <li>Selecciona tus tomos de manga.</li>
+            <li>Revisa la guía de ediciones en la sección informativa.</li>
+            <li>Completa tus datos de envío para entrega en todo Ecuador.</li>
+          </ol>
+        </div>
+
+      </aside>
+
+      <!-- --------------------------------------------------------------------
+           SECTION PRINCIPAL: 12 TARJETAS MÍNIMO (EXCLUSIVAMENTE <ARTICLE>)
+           Semántica: <section>, <article>, <figure>, <figcaption>
+           -------------------------------------------------------------------- -->
+      <section aria-label="Listado de volúmenes de manga disponibles">
+
+        <div class="cuadricula-catalogo">
+
+          <!-- ==========================================
+               TARJETA 1 (Seinen)
+               ========================================== -->
+          <article class="tarjeta-manga">
+            <figure>
+              <img src="img/manga-01.svg" alt="Portada del manga Cyberpunk Edge volumen 1 con tonos rojo y negro" width="400" height="600" loading="lazy">
+              <figcaption>
+                <span>VOL. 01</span>
+                <span>SEINEN</span>
+              </figcaption>
+            </figure>
+            <div style="padding-top: 12px; display: flex; flex-direction: column; flex-grow: 1;">
+              <span class="etiqueta-chip etiqueta-hot" style="width: fit-content;">HOT</span>
+              <h3>Cyberpunk Edge</h3>
+              <p class="autor-manga">Takeshi Kurosawa</p>
+              <p class="descripcion-manga">Un thriller cyberpunk de alta intensidad sobre rebeldes mecánicos en los bajos fondos de Tokio. Formato Tankōbon con páginas a color.</p>
+              <div class="pie-tarjeta-manga">
+                <span class="precio-manga">$14.99</span>
+                <a href="pagina3.html#ediciones" class="boton-accion">Ver más</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- ==========================================
+               TARJETA 2 (Shonen)
+               ========================================== -->
+          <article class="tarjeta-manga">
+            <figure>
+              <img src="img/manga-02.svg" alt="Portada del manga Blade Soul volumen 12 con espada ancestral y luna de tinta" width="400" height="600" loading="lazy">
+              <figcaption>
+                <span>VOL. 12</span>
+                <span>SHONEN</span>
+              </figcaption>
+            </figure>
+            <div style="padding-top: 12px; display: flex; flex-direction: column; flex-grow: 1;">
+              <span class="etiqueta-chip etiqueta-sale" style="width: fit-content;">SALE</span>
+              <h3>Blade Soul</h3>
+              <p class="autor-manga">Yuki Matsuo</p>
+              <p class="descripcion-manga">La saga del espadachín errante que busca redención cortando las sombras demoníacas. Emocionante clímax del arco de Kioto en tomo individual.</p>
+              <div class="pie-tarjeta-manga">
+                <span class="precio-manga">$11.50</span>
+                <a href="pagina3.html#ediciones" class="boton-accion">Ver más</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- ==========================================
+               TARJETA 3 (Seinen)
+               ========================================== -->
+          <article class="tarjeta-manga">
+            <figure>
+              <img src="img/manga-03.svg" alt="Portada del manga Neo Tokyo Ghost volumen 4 con diseño digital espectral" width="400" height="600" loading="lazy">
+              <figcaption>
+                <span>VOL. 04</span>
+                <span>SEINEN</span>
+              </figcaption>
+            </figure>
+            <div style="padding-top: 12px; display: flex; flex-direction: column; flex-grow: 1;">
+              <span class="etiqueta-chip etiqueta-nuevo" style="width: fit-content;">NUEVO</span>
+              <h3>Neo Tokyo Ghost</h3>
+              <p class="autor-manga">Shinji Hashimoto</p>
+              <p class="descripcion-manga">Intriga sobrenatural y tecnología en un cruce urbano laberíntico. Edición con papel ahuesado de alto gramaje para coleccionistas.</p>
+              <div class="pie-tarjeta-manga">
+                <span class="precio-manga">$15.99</span>
+                <a href="pagina3.html#ediciones" class="boton-accion">Ver más</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- ==========================================
+               TARJETA 4 (Seinen - Ómnibus)
+               ========================================== -->
+          <article class="tarjeta-manga">
+            <figure>
+              <img src="img/manga-04.svg" alt="Portada del manga Blood and Steel tomo ómnibus recopilatorio con geometría pesada" width="400" height="600" loading="lazy">
+              <figcaption>
+                <span>OMNIBUS 1</span>
+                <span>SEINEN</span>
+              </figcaption>
+            </figure>
+            <div style="padding-top: 12px; display: flex; flex-direction: column; flex-grow: 1;">
+              <span class="etiqueta-chip etiqueta-omnibus" style="width: fit-content;">OMNIBUS</span>
+              <h3>Blood &amp; Steel</h3>
+              <p class="autor-manga">Ryo Ishikawa</p>
+              <p class="descripcion-manga">Edición integral 2 en 1 con lomo reforzado y más de 450 páginas de combate de robots titánicos y estrategia geopolítica visceral.</p>
+              <div class="pie-tarjeta-manga">
+                <span class="precio-manga">$24.00</span>
+                <a href="pagina3.html#ediciones" class="boton-accion">Ver más</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- ==========================================
+               TARJETA 5 (Shonen)
+               ========================================== -->
+          <article class="tarjeta-manga">
+            <figure>
+              <img src="img/manga-05.svg" alt="Portada del manga Sombras de Kioto volumen 3 con portal sintoísta y luna roja" width="400" height="600" loading="lazy">
+              <figcaption>
+                <span>VOL. 03</span>
+                <span>SHONEN</span>
+              </figcaption>
+            </figure>
+            <div style="padding-top: 12px; display: flex; flex-direction: column; flex-grow: 1;">
+              <span class="etiqueta-chip etiqueta-hot" style="width: fit-content;">HOT</span>
+              <h3>Sombras de Kioto</h3>
+              <p class="autor-manga">Haruto Morimoto</p>
+              <p class="descripcion-manga">Exorcistas modernos resguardan santuarios sagrados frente a espíritus corrompidos por la tecnología. Batallas dinámicas panel a panel.</p>
+              <div class="pie-tarjeta-manga">
+                <span class="precio-manga">$13.50</span>
+                <a href="pagina3.html#ediciones" class="boton-accion">Ver más</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- ==========================================
+               TARJETA 6 (Shojo - Edición de Lujo)
+               ========================================== -->
+          <article class="tarjeta-manga">
+            <figure>
+              <img src="img/manga-06.svg" alt="Portada del manga Vórtice Estelar volumen 2 con constelaciones orbitales" width="400" height="600" loading="lazy">
+              <figcaption>
+                <span>VOL. 02</span>
+                <span>SHOJO</span>
+              </figcaption>
+            </figure>
+            <div style="padding-top: 12px; display: flex; flex-direction: column; flex-grow: 1;">
+              <span class="etiqueta-chip etiqueta-nuevo" style="width: fit-content;">NUEVO</span>
+              <h3>Vórtice Estelar</h3>
+              <p class="autor-manga">Elena Fujiwara</p>
+              <p class="descripcion-manga">Un romance de ciencia ficción lírico en una estación espacial de investigación. Tapa dura cartoné con acabado metalizado en relieve.</p>
+              <div class="pie-tarjeta-manga">
+                <span class="precio-manga">$16.50</span>
+                <a href="pagina3.html#ediciones" class="boton-accion">Ver más</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- ==========================================
+               TARJETA 7 (Shonen)
+               ========================================== -->
+          <article class="tarjeta-manga">
+            <figure>
+              <img src="img/manga-07.svg" alt="Portada del manga Alquimia Carmesí volumen 7 con círculos de transmutación alquímica" width="400" height="600" loading="lazy">
+              <figcaption>
+                <span>VOL. 07</span>
+                <span>SHONEN</span>
+              </figcaption>
+            </figure>
+            <div style="padding-top: 12px; display: flex; flex-direction: column; flex-grow: 1;">
+              <span class="etiqueta-chip etiqueta-sale" style="width: fit-content;">SALE</span>
+              <h3>Alquimia Carmesí</h3>
+              <p class="autor-manga">Daiki Takahashi</p>
+              <p class="descripcion-manga">Científicos alquimistas se rebelan contra la inquisición militar imperial. Sistema de poderes táctico y giros de guion impredecibles.</p>
+              <div class="pie-tarjeta-manga">
+                <span class="precio-manga">$12.99</span>
+                <a href="pagina3.html#ediciones" class="boton-accion">Ver más</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- ==========================================
+               TARJETA 8 (Josei - Kanzenban)
+               ========================================== -->
+          <article class="tarjeta-manga">
+            <figure>
+              <img src="img/manga-08.svg" alt="Portada del manga Corazón de Cuarzo volumen 1 con diseño minimalista de fractura kintsugi" width="400" height="600" loading="lazy">
+              <figcaption>
+                <span>VOL. 01</span>
+                <span>JOSEI</span>
+              </figcaption>
+            </figure>
+            <div style="padding-top: 12px; display: flex; flex-direction: column; flex-grow: 1;">
+              <span class="etiqueta-chip etiqueta-nuevo" style="width: fit-content;">NUEVO</span>
+              <h3>Corazón de Cuarzo</h3>
+              <p class="autor-manga">Aoi Tachibana</p>
+              <p class="descripcion-manga">La reconstrucción personal de una ceramista a través del arte de reparar con oro. Drama maduro, sensible y exquisitamente ilustrado.</p>
+              <div class="pie-tarjeta-manga">
+                <span class="precio-manga">$14.25</span>
+                <a href="pagina3.html#ediciones" class="boton-accion">Ver más</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- ==========================================
+               TARJETA 9 (Seinen - Ómnibus Coleccionista)
+               ========================================== -->
+          <article class="tarjeta-manga">
+            <figure>
+              <img src="img/manga-09.svg" alt="Portada del manga El Último Guardián con compendio de archivo y estética brutalista" width="400" height="600" loading="lazy">
+              <figcaption>
+                <span>OMNIBUS 1</span>
+                <span>SEINEN</span>
+              </figcaption>
+            </figure>
+            <div style="padding-top: 12px; display: flex; flex-direction: column; flex-grow: 1;">
+              <span class="etiqueta-chip etiqueta-omnibus" style="width: fit-content;">OMNIBUS</span>
+              <h3>El Último Guardián</h3>
+              <p class="autor-manga">Kenjiro Sato</p>
+              <p class="descripcion-manga">Tomo monumental de más de 500 páginas que recopila los primeros 3 arcos de la defensa de la biblioteca física frente al olvido digital.</p>
+              <div class="pie-tarjeta-manga">
+                <span class="precio-manga">$22.00</span>
+                <a href="pagina3.html#ediciones" class="boton-accion">Ver más</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- ==========================================
+               TARJETA 10 (Josei)
+               ========================================== -->
+          <article class="tarjeta-manga">
+            <figure>
+              <img src="img/manga-10.svg" alt="Portada del manga Ecos de Shinjuku volumen 5 con perfil nocturno de rascacielos y faroles" width="400" height="600" loading="lazy">
+              <figcaption>
+                <span>VOL. 05</span>
+                <span>JOSEI</span>
+              </figcaption>
+            </figure>
+            <div style="padding-top: 12px; display: flex; flex-direction: column; flex-grow: 1;">
+              <span class="etiqueta-chip etiqueta-hot" style="width: fit-content;">HOT</span>
+              <h3>Ecos de Shinjuku</h3>
+              <p class="autor-manga">Renzo Tanaka</p>
+              <p class="descripcion-manga">Vidas cruzadas en las madrugadas de Shinjuku: jazz, gastronomía de taberna izakaya y conexiones humanas inolvidables en Tokio.</p>
+              <div class="pie-tarjeta-manga">
+                <span class="precio-manga">$13.99</span>
+                <a href="pagina3.html#ediciones" class="boton-accion">Ver más</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- ==========================================
+               TARJETA 11 (Shonen)
+               ========================================== -->
+          <article class="tarjeta-manga">
+            <figure>
+              <img src="img/manga-11.svg" alt="Portada del manga Cazadores del Viento volumen 9 con planeador supersónico entre cañones" width="400" height="600" loading="lazy">
+              <figcaption>
+                <span>VOL. 09</span>
+                <span>SHONEN</span>
+              </figcaption>
+            </figure>
+            <div style="padding-top: 12px; display: flex; flex-direction: column; flex-grow: 1;">
+              <span class="etiqueta-chip etiqueta-sale" style="width: fit-content;">SALE</span>
+              <h3>Cazadores del Viento</h3>
+              <p class="autor-manga">Kazuki Endo</p>
+              <p class="descripcion-manga">Competiciones aéreas extremas en un archipiélago flotante. Aventura trepidante con viñetas panorámicas de increíble dinamismo.</p>
+              <div class="pie-tarjeta-manga">
+                <span class="precio-manga">$11.99</span>
+                <a href="pagina3.html#ediciones" class="boton-accion">Ver más</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- ==========================================
+               TARJETA 12 (Shojo - Edición de Lujo)
+               ========================================== -->
+          <article class="tarjeta-manga">
+            <figure>
+              <img src="img/manga-12.svg" alt="Portada del manga Espada y Ceniza volumen 1 con emblema real y filigranas rojas" width="400" height="600" loading="lazy">
+              <figcaption>
+                <span>VOL. 01</span>
+                <span>SHOJO</span>
+              </figcaption>
+            </figure>
+            <div style="padding-top: 12px; display: flex; flex-direction: column; flex-grow: 1;">
+              <span class="etiqueta-chip etiqueta-nuevo" style="width: fit-content;">NUEVO</span>
+              <h3>Espada y Ceniza</h3>
+              <p class="autor-manga">Misaki Nomura</p>
+              <p class="descripcion-manga">Una joven estratega real asume el mando de un reino asediado. Conspiraciones palaciegas y elegancia gráfica en una edición encuadernada en hilo.</p>
+              <div class="pie-tarjeta-manga">
+                <span class="precio-manga">$17.50</span>
+                <a href="pagina3.html#ediciones" class="boton-accion">Ver más</a>
+              </div>
+            </div>
+          </article>
+
+        </div>
+
+      </section>
+
+    </div>
+
+  </main>
+
+  <!-- ========================================================================
+       PIE DE PÁGINA (FOOTER)
+       Semántica: <footer>
+       ======================================================================== -->
+  <footer class="pie-de-pagina">
+    <div class="contenedor">
+      
+      <div class="footer-columnas">
+        
+        <div class="footer-seccion">
+          <h4 style="color: #ffffff;">MANGA VOID COMICS</h4>
+          <p style="color: #dce5d9; font-size: 0.92rem; line-height: 1.5;">
+            Librería especializada en manga, cómics orientales y ediciones físicas para coleccionistas. Catálogo actualizado con las mejores obras del circuito editorial internacional.
+          </p>
+          <p style="font-family: var(--fuente-etiquetas); font-size: 0.8rem; color: #a0b29d;">
+            Guayaquil, Ecuador · Universidad de Guayaquil
+          </p>
+        </div>
+
+        <div class="footer-seccion">
+          <h4>MAPA DEL SITIO</h4>
+          <ul>
+            <li><a href="index.html">Página de Inicio</a></li>
+            <li><a href="catalogo.html">Catálogo Completo (12 Tomos)</a></li>
+            <li><a href="pagina3.html">Guía del Coleccionista</a></li>
+            <li><a href="pagina3.html#demografias">Glosario de Demografías</a></li>
+            <li><a href="pagina3.html#ediciones">Tabla de Tipos de Edición</a></li>
+            <li><a href="pagina3.html#envios">Preguntas Frecuentes y Contacto</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-seccion">
+          <h4>RECURSOS Y ENLACES</h4>
+          <ul>
+            <li><a href="https://www.animenewsnetwork.com/" target="_blank" rel="noopener noreferrer">Anime News Network</a></li>
+            <li><a href="https://myanimelist.net/" target="_blank" rel="noopener noreferrer">MyAnimeList Manga Database</a></li>
+            <li><a href="https://validator.w3.org/" target="_blank" rel="noopener noreferrer">Validador Oficial W3C HTML5</a></li>
+            <li><a href="https://jigsaw.w3.org/css-validator/" target="_blank" rel="noopener noreferrer">Validador Oficial W3C CSS3</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="footer-creditos">
+        <p>
+          © 2026 MANGA VOID. Todos los derechos reservados. Proyecto universitario de Desarrollo de Aplicaciones Web.
+        </p>
+        <p>
+          <strong>Créditos de arte:</strong> Ilustraciones vectoriales originales SVG y tipografías licenciadas bajo Google Fonts (Anton, Hanken Grotesk, JetBrains Mono).
+        </p>
+      </div>
+
+    </div>
+  </footer>
+
+</body>
+</html>

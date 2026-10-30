@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MANGA VOID | Tienda Oficial de Manga y Ediciones de Colección</title>
+  <meta name="description" content="MANGA VOID es la tienda especializada en manga físico original, ediciones de lujo, ómnibus y coleccionismo en Ecuador.">
+  <!-- CSS EXTERNO: Hoja de estilos principal del proyecto -->
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- ========================================================================
+       ENCABEZADO PRINCIPAL (HEADER + NAV + BUSCADOR)
+       Semántica: <header>, <nav>
+       ======================================================================== -->
+  <header id="encabezado-sitio">
+    <div class="contenedor barra-navegacion">
+      
+      <!-- Logotipo de Manga Void -->
+      <a href="index.html" class="logo-sitio" title="Inicio - Manga Void">
+        <img src="img/logo.svg" alt="Logotipo oficial de Manga Void en rojo carmesí y tinta negra" width="220" height="42">
+      </a>
+
+      <!-- Menú de navegación principal compartido -->
+      <nav aria-label="Navegación principal del sitio">
+        <div class="menu-principal">
+          <a href="index.html" class="enlace-activo" aria-current="page">Inicio</a>
+          <a href="catalogo.html">Catálogo</a>
+          <a href="pagina3.html">Guía del Coleccionista</a>
+        </div>
+      </nav>
+
+      <!-- Buscador accesible sin JavaScript -->
+      <form class="formulario-busqueda" action="#" method="get" role="search">
+        <label for="buscar-manga" style="position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); border: 0;">Buscar mangas en el catálogo</label>
+        <input type="search" id="buscar-manga" name="q" placeholder="Buscar manga, autor o género..." required>
+        <button type="submit" aria-label="Ejecutar búsqueda">BUSCAR</button>
+      </form>
+
+    </div>
+  </header>
+
+  <!-- ========================================================================
+       CONTENIDO PRINCIPAL (MAIN)
+       Semántica: <main>, <section>, <article>, <aside>, <figure>, <figcaption>
+       ======================================================================== -->
+  <main>
+
+    <!-- ----------------------------------------------------------------------
+         SECCIÓN 1: HERO (LANZAMIENTO DESTACADO)
+         ---------------------------------------------------------------------- -->
+    <section class="seccion-hero" aria-labelledby="titulo-hero">
+      <div class="contenedor bloque-hero">
+        
+        <div class="hero-informacion">
+          <!-- CSS EN LÍNEA: Destaca el fondo carmesí y bordes de la etiqueta de edición especial -->
+          <span class="etiqueta-chip" style="background-color: #b7102a; color: #ffffff; padding: 6px 14px; font-weight: 700; border: 2px solid #161d16; box-shadow: 3px 3px 0 #161d16;">EDICIÓN DE COLECCIONISTA</span>
+          
+          <h1 id="titulo-hero">CRÓNICAS DEL VACÍO<br><span class="texto-resaltado">VOLUMEN ESPECIAL 01</span></h1>
+          
+          <p class="subtitulo-seccion">Por Kenjiro Sato · Gran Premio Manga 2026</p>
+          
+          <p>
+            Sumérgete en la aclamada epopeya de ciencia ficción y samuráis oscuros que redefinió el cómic nipón contemporáneo. Una edición física de gran formato impresa con tintas pigmentadas de alta densidad, encuadernación reforzada de tapa semirrígida y láminas exclusivas de arte conceptual nunca antes publicadas en Occidente.
+          </p>
+
+          <div class="botones-hero">
+            <a href="catalogo.html" class="boton-primario">COMPRAR AHORA — $18.99</a>
+            <!-- CSS EN LÍNEA: Establece un espaciado entre letras distintivo y borde reforzado en el botón de vista previa -->
+            <a href="pagina3.html#ediciones" class="boton-secundario" style="letter-spacing: 1.5px; border-width: 2px;">VISTA PREVIA</a>
+          </div>
+        </div>
+
+        <div class="hero-visual">
+          <figure>
+            <img src="img/portada-hero.svg" alt="Ilustración de portada del manga Crónicas del Vacío volumen especial, con arte de estrella y shuriken en tinta negra y rojo carmesí" width="400" height="600">
+            <figcaption>
+              <span>Edición Definitiva en Tinta China</span>
+              <span>ISBN 978-9942-01-8841</span>
+            </figcaption>
+          </figure>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ----------------------------------------------------------------------
+         SECCIÓN 2: ¿POR QUÉ COMPRAR EN MANGA VOID? (LISTA DE 5+ BENEFICIOS)
+         ---------------------------------------------------------------------- -->
+    <section class="guia-seccion" aria-labelledby="titulo-beneficios">
+      <div class="contenedor">
+        <h2 id="titulo-beneficios">¿Por qué comprar en Manga Void?</h2>
+        <p class="subtitulo-seccion">Cinco compromisos innegociables con la comunidad de lectores y coleccionistas</p>
+        
+        <ul class="lista-beneficios">
+          <li>
+            <strong>Importaciones Oficiales y Certificadas:</strong> Todos nuestros títulos provienen directamente de casas editoriales autorizadas en Japón, España, México y Argentina. Cero reproducciones piratas, 100% material legal que remunera a los autores.
+          </li>
+          <li>
+            <strong>Embalaje Protector Blindado:</strong> Enviamos cada tomo envuelto en doble burbuja de alta densidad, refuerzos esquineros de poliestireno rígido y cajas a medida para garantizar que tus lomos y sobrecubiertas lleguen impecables, sin esquinas dobladas.
+          </li>
+          <li>
+            <strong>Cobertura de Envíos a todo el Ecuador:</strong> Entregas express en 24 a 48 horas en Guayaquil, Quito, Cuenca y todas las ciudades del país mediante servicios de courier con seguimiento satelital de paquete.
+          </li>
+          <li>
+            <strong>Preventas con Beneficios de Colección:</strong> Asegura tus tomos antes de su fecha oficial de lanzamiento y recibe sin costo extra marcapáginas metálicos, postales litográficas numeradas y sobrecubiertas variantes exclusivas de Manga Void.
+          </li>
+          <li>
+            <strong>Garantía de Primera Tirada y Catálogo Completo:</strong> Mantenemos un archivo activo de tomos agotados, primeras impresiones para coleccionistas rigurosos y reposición continua de volúmenes intermedios para que nunca te quedes con una serie incompleta.
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ----------------------------------------------------------------------
+         SECCIÓN 3: ÚLTIMOS LANZAMIENTOS (CUADRÍCULA DE 4 TARJETAS CON ARTICLE)
+         ---------------------------------------------------------------------- -->
+    <section class="guia-seccion" aria-labelledby="titulo-lanzamientos">
+      <div class="contenedor">
+        
+        <div style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 12px; margin-bottom: 24px; border-bottom: 3px solid #161d16; padding-bottom: 12px;">
+          <div>
+            <h2 id="titulo-lanzamientos" style="margin-bottom: 0;">Últimos Lanzamientos</h2>
+            <p style="margin: 0; color: #5b403f; font-weight: 600;">Novedades recién llegadas a nuestras bodegas físicas</p>
+          </div>
+          <a href="catalogo.html" class="enlace-con-flecha" style="font-family: var(--fuente-titulos); font-size: 1.15rem; color: var(--color-primario);">VER TODO EL CATÁLOGO</a>
+        </div>
+
+        <div class="cuadricula-lanzamientos">
+
+          <!-- Tarjeta 1: Cyberpunk Edge -->
+          <article class="tarjeta-manga">
+            <figure>
+              <img src="img/manga-01.svg" alt="Portada del manga Cyberpunk Edge volumen 1 con protagonista cibernético y detalles en rojo neón" width="400" height="600" loading="lazy">
+              <figcaption>
+                <span>VOL. 01</span>
+                <span>SEINEN</span>
+              </figcaption>
+            </figure>
+            <div style="padding-top: 12px; display: flex; flex-direction: column; flex-grow: 1;">
+              <span class="etiqueta-chip" style="background-color: #b7102a; width: fit-content;">HOT</span>
+              <h3>Cyberpunk Edge</h3>
+              <p class="autor-manga">Guion y arte: Takeshi Kurosawa</p>
+              <p class="descripcion-manga">En Neo Shinjuku, un cazarrecompensas con memoria borrada debe desentrañar una conspiración cibernética antes de que su propio implante lo consuma.</p>
+              <div class="pie-tarjeta-manga">
+                <span class="precio-manga">$14.99</span>
+                <a href="pagina3.html#ediciones" class="boton-accion">Ver más</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Tarjeta 2: Blade Soul -->
+          <article class="tarjeta-manga">
+            <figure>
+              <img src="img/manga-02.svg" alt="Portada del manga Blade Soul volumen 12 con silueta de catana y trazo de tinta tradicional" width="400" height="600" loading="lazy">
+              <figcaption>
+                <span>VOL. 12</span>
+                <span>SHONEN</span>
+              </figcaption>
+            </figure>
+            <div style="padding-top: 12px; display: flex; flex-direction: column; flex-grow: 1;">
+              <span class="etiqueta-chip" style="background-color: #485f84; width: fit-content;">SALE</span>
+              <h3>Blade Soul</h3>
+              <p class="autor-manga">Guion y arte: Yuki Matsuo</p>
+              <p class="descripcion-manga">La batalla decisiva por el Paso de las Ánimas. Un joven espadachín despierta el espíritu del acero ancestral para salvar a su clan de la aniquilación.</p>
+              <div class="pie-tarjeta-manga">
+                <span class="precio-manga">$11.50</span>
+                <a href="pagina3.html#ediciones" class="boton-accion">Ver más</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Tarjeta 3: Neo Tokyo Ghost -->
+          <article class="tarjeta-manga">
+            <figure>
+              <img src="img/manga-03.svg" alt="Portada del manga Neo Tokyo Ghost volumen 4 con espectro digital saliendo de pantallas urbanas" width="400" height="600" loading="lazy">
+              <figcaption>
+                <span>VOL. 04</span>
+                <span>SEINEN</span>
+              </figcaption>
+            </figure>
+            <div style="padding-top: 12px; display: flex; flex-direction: column; flex-grow: 1;">
+              <span class="etiqueta-chip" style="background-color: #286182; width: fit-content;">NUEVO</span>
+              <h3>Neo Tokyo Ghost</h3>
+              <p class="autor-manga">Guion y arte: Shinji Hashimoto</p>
+              <p class="descripcion-manga">Fantasmas algorítmicos habitan la red móvil de Tokio. Una detective de delitos cibernéticos debe pactar con un espíritu para rastrear crímenes virtuales.</p>
+              <div class="pie-tarjeta-manga">
+                <span class="precio-manga">$15.99</span>
+                <a href="pagina3.html#ediciones" class="boton-accion">Ver más</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Tarjeta 4: Blood & Steel -->
+          <article class="tarjeta-manga">
+            <figure>
+              <img src="img/manga-04.svg" alt="Portada del manga Blood and Steel edición ómnibus con armaduras mecánicas y composición geométrica" width="400" height="600" loading="lazy">
+              <figcaption>
+                <span>OMNIBUS 1</span>
+                <span>SEINEN</span>
+              </figcaption>
+            </figure>
+            <div style="padding-top: 12px; display: flex; flex-direction: column; flex-grow: 1;">
+              <span class="etiqueta-chip" style="background-color: #b7102a; width: fit-content;">OMNIBUS</span>
+              <h3>Blood &amp; Steel</h3>
+              <p class="autor-manga">Guion y arte: Ryo Ishikawa</p>
+              <p class="descripcion-manga">Dos volúmenes integrados en un solo tomo monumental de más de 450 páginas. La crónica implacable de la guerra de caballeros blindados en la tundra norte.</p>
+              <div class="pie-tarjeta-manga">
+                <span class="precio-manga">$24.00</span>
+                <a href="pagina3.html#ediciones" class="boton-accion">Ver más</a>
+              </div>
+            </div>
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ----------------------------------------------------------------------
+         ASIDE: FRANJA DE EDITORIALES Y ALIADOS INTERNACIONALES
+         Semántica: <aside> con enlaces externos reales
+         ---------------------------------------------------------------------- -->
+    <aside class="franja-editoriales" aria-label="Editoriales aliadas y distribuidoras oficiales">
+      <div class="contenedor">
+        <p style="font-family: var(--fuente-etiquetas); font-size: 0.85rem; font-weight: 700; letter-spacing: 2px; color: var(--color-texto-secundario); text-transform: uppercase;">
+          DISTRIBUIDOR AUTORIZADO Y SOCIO OFICIAL GLOBAL
+        </p>
+        <div class="editoriales-lista">
+          <a href="https://www.shueisha.co.jp/" class="editorial-item" target="_blank" rel="noopener noreferrer" title="Visitar sitio oficial de Shueisha (se abre en nueva pestaña)">SHUEISHA</a>
+          <a href="https://www.kodansha.co.jp/" class="editorial-item" target="_blank" rel="noopener noreferrer" title="Visitar sitio oficial de Kodansha (se abre en nueva pestaña)">KODANSHA</a>
+          <a href="https://www.viz.com/" class="editorial-item" target="_blank" rel="noopener noreferrer" title="Visitar sitio oficial de Viz Media (se abre en nueva pestaña)">VIZ MEDIA</a>
+          <a href="https://yenpress.com/" class="editorial-item" target="_blank" rel="noopener noreferrer" title="Visitar sitio oficial de Yen Press (se abre en nueva pestaña)">YEN PRESS</a>
+          <a href="https://www.normaeditorial.com/" class="editorial-item" target="_blank" rel="noopener noreferrer" title="Visitar sitio oficial de Norma Editorial (se abre en nueva pestaña)">NORMA EDITORIAL</a>
+        </div>
+      </div>
+    </aside>
+
+    <!-- ----------------------------------------------------------------------
+         SECCIÓN 4: BLOQUE DE SUSCRIPCIÓN (NEWSLETTER)
+         ---------------------------------------------------------------------- -->
+    <section id="bloque-suscripcion" aria-labelledby="titulo-newsletter">
+      <div class="contenedor newsletter-contenedor">
+        <div style="text-align: center; max-width: 620px;">
+          <h2 id="titulo-newsletter" style="color: #ffffff; font-size: 2.2rem; margin-bottom: 8px;">ÚNETE AL VACÍO</h2>
+          <p style="color: #dce5d9; font-size: 1.05rem;">
+            Suscríbete para recibir notificaciones prioritarias de preventas, códigos de descuento para coleccionistas y reportes de lanzamientos exclusivos importados de Japón.
+          </p>
+        </div>
+
+        <form class="formulario-suscripcion" action="#" method="post">
+          <label for="correo-suscripcion" style="position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); border: 0;">Correo electrónico para boletín</label>
+          <input type="email" id="correo-suscripcion" name="email" placeholder="TU CORREO ELECTRÓNICO AQUÍ..." required>
+          <button type="submit" class="boton-primario">SUSCRIBIRME</button>
+        </form>
+
+        <p style="font-family: var(--fuente-etiquetas); font-size: 0.75rem; color: #a0b29d; margin: 0;">
+          Al registrarte aceptas nuestras políticas de privacidad y envíos. Cero spam, solo tinta.
+        </p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ========================================================================
+       PIE DE PÁGINA (FOOTER)
+       Semántica: <footer> con navegación legal, sitemap y créditos
+       ======================================================================== -->
+  <footer class="pie-de-pagina">
+    <div class="contenedor">
+      
+      <div class="footer-columnas">
+        
+        <!-- Columna 1: Identidad de Manga Void -->
+        <div class="footer-seccion">
+          <h4 style="color: #ffffff;">MANGA VOID COMICS</h4>
+          <p style="color: #dce5d9; font-size: 0.92rem; line-height: 1.5;">
+            Librería especializada en manga, cómics orientales y ediciones físicas para coleccionistas. Fundada con el compromiso de preservar la cultura gráfica y proveer material de alta calidad a lectores de todo el Ecuador.
+          </p>
+          <p style="font-family: var(--fuente-etiquetas); font-size: 0.8rem; color: #a0b29d;">
+            Guayaquil, Ecuador · Universidad de Guayaquil
+          </p>
+        </div>
+
+        <!-- Columna 2: Navegación interna (Sitemap) -->
+        <div class="footer-seccion">
+          <h4>MAPA DEL SITIO</h4>
+          <ul>
+            <li><a href="index.html">Página de Inicio</a></li>
+            <li><a href="catalogo.html">Catálogo Completo (12 Tomos)</a></li>
+            <li><a href="pagina3.html">Guía del Coleccionista</a></li>
+            <li><a href="pagina3.html#demografias">Glosario de Demografías</a></li>
+            <li><a href="pagina3.html#ediciones">Tabla de Tipos de Edición</a></li>
+            <li><a href="pagina3.html#envios">Preguntas Frecuentes y Contacto</a></li>
+          </ul>
+        </div>
+
+        <!-- Columna 3: Información Académica y Recursos Externos -->
+        <div class="footer-seccion">
+          <h4>RECURSOS Y ENLACES</h4>
+          <ul>
+            <li><a href="https://www.animenewsnetwork.com/" target="_blank" rel="noopener noreferrer">Anime News Network</a></li>
+            <li><a href="https://myanimelist.net/" target="_blank" rel="noopener noreferrer">MyAnimeList Manga Database</a></li>
+            <li><a href="https://validator.w3.org/" target="_blank" rel="noopener noreferrer">Validador Oficial W3C HTML5</a></li>
+            <li><a href="https://jigsaw.w3.org/css-validator/" target="_blank" rel="noopener noreferrer">Validador Oficial W3C CSS3</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Créditos de imágenes y derechos legales -->
+      <div class="footer-creditos">
+        <p>
+          © 2026 MANGA VOID. Todos los derechos reservados. Proyecto académico de Desarrollo de Aplicaciones Web.
+        </p>
+        <p>
+          <strong>Créditos de arte:</strong> Ilustraciones vectoriales originales SVG y tipografías licenciadas bajo Google Fonts (Anton, Hanken Grotesk, JetBrains Mono).
+        </p>
+      </div>
+
+    </div>
+  </footer>
+
+</body>
+</html>

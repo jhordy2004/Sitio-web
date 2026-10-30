@@ -1,0 +1,1017 @@
+/* ==========================================================================
+   MANGA VOID — HOJA DE ESTILOS EXTERNA PRINCIPAL
+   Asignatura: Desarrollo de Aplicaciones Web | Universidad de Guayaquil
+   Docente: Mgtr. Karla Abad Sacoto | Estudiante: Marco Córdova Rivera
+   Estilo visual: Manga-Industrial (Alto contraste, screentones, sombras duras)
+   ========================================================================== */
+
+/* ===== CSS EXTERNO: Vinculado mediante <link rel="stylesheet" href="css/styles.css"> ===== */
+
+/* --------------------------------------------------------------------------
+   IMPORTACIÓN DE FUENTES TIPOGRÁFICAS (Google Fonts)
+   1. Anton: Titulares condensados y sonoros de impacto manga.
+   2. Hanken Grotesk: Párrafos y textos de alta legibilidad moderna.
+   3. JetBrains Mono: Datos técnicos, metadatos, precios e ISBN.
+   -------------------------------------------------------------------------- */
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Hanken+Grotesk:ital,wght@0,400;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500;700&display=swap');
+
+/* ==========================================================================
+   5.4 VARIABLES CSS (CUSTOM PROPERTIES EN :ROOT)
+   Definición de tokens de diseño siguiendo la paleta de DESIGN.md (Crimson Ink)
+   ========================================================================== */
+:root {
+  /* Tokens cromáticos primarios y de contraste */
+  --color-primario: #b7102a;             /* Carmesí de alta intensidad para llamadas a la acción */
+  --color-primario-oscuro: #92001c;      /* Tono carmesí oscuro para estados activos */
+  --color-primario-contenedor: #db313f;  /* Rojo secundario para contenedores de énfasis */
+  --color-tinta: #161d16;                /* Negro profundo tinta china para textos y bordes estructurales */
+  --color-papel: #f3fcf0;                /* Blanco papel suave para reducir fatiga visual */
+  --color-superficie: #ffffff;           /* Blanco puro de fondo para tarjetas y contenedores */
+  --color-superficie-baja: #edf6ea;      /* Superficie con leve tinte para secciones alternas */
+  --color-superficie-media: #e7f0e5;     /* Superficie intermedia para franja de editoriales */
+  --color-superficie-alta: #e2ebdf;      /* Superficie para bordes y fondos de badges */
+  --color-superficie-inversa: #2a322b;   /* Superficie oscura para footer y newsletter */
+  --color-texto-inverso: #eaf3e7;        /* Texto claro sobre fondos oscuros */
+  --color-texto-secundario: #5b403f;     /* Tono sepia/marrón para autores y subtítulos */
+  --color-borde: #161d16;                /* Color del borde sólido de 2px */
+  --color-borde-variante: #e4bebc;       /* Borde suave de acento */
+  --color-secundario: #485f84;           /* Azul acero para etiquetas SALE y notas secundarias */
+  --color-terciario: #286182;            /* Azul petróleo para etiquetas NUEVO y categorías */
+
+  /* Familias tipográficas con fuentes de respaldo (fallbacks) */
+  --fuente-titulos: 'Anton', Impact, 'Arial Black', sans-serif;
+  --fuente-texto: 'Hanken Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --fuente-etiquetas: 'JetBrains Mono', 'Courier New', Courier, monospace;
+
+  /* Sistema métrico y espaciado proporcional (Base 8px) */
+  --espacio-base: 8px;                   /* Unidad atómica base de 8px */
+  --espacio-pequeno: 12px;               /* 1.5x unidad base */
+  --espacio-medio: 16px;                 /* 2x unidad base */
+  --espacio-grande: 24px;                /* 3x unidad base (gutter) */
+  --espacio-seccion: 48px;               /* Espacio vertical entre bloques */
+  --espacio-seccion-lg: 64px;            /* Espaciado amplio en escritorio */
+  --margen-movil: 16px;                  /* Márgenes laterales en pantallas pequeñas */
+  --margen-escritorio: 64px;             /* Márgenes laterales en pantallas grandes */
+  --ancho-maximo: 1320px;                /* Contenedor central máximo */
+
+  /* Estética Manga-Industrial: Sombras duras sin desenfoque */
+  --sombra-dura: 4px 4px 0 var(--color-tinta);
+  --sombra-dura-grande: 8px 8px 0 var(--color-tinta);
+  --sombra-dura-pequena: 2px 2px 0 var(--color-tinta);
+  --sombra-dura-inversa: 4px 4px 0 var(--color-papel);
+
+  /* Esquinas según sistema de diseño: 0px en contenedores, 4px en botones */
+  --radio-cero: 0px;
+  --radio-boton: 4px;
+}
+
+/* ==========================================================================
+   5.2 EXPLICACIÓN DE ESPECIFICIDAD EN CSS
+   --------------------------------------------------------------------------
+   La especificidad es el peso numérico que determina qué regla CSS gana ante un
+   conflicto de estilos. Se calcula como una tupla (Estilos en línea, IDs, Clases/Atributos/Pseudoclases, Elementos/Pseudoelementos).
+
+   Ejemplo de conflicto resuelto en este proyecto:
+   Regla A: article.tarjeta-manga p.descripcion-manga (Peso: 0-0-2-2)
+   Regla B: .tarjeta-manga p (Peso: 0-0-1-1)
+   Resultado: La Regla A prevalece sobre la Regla B porque tiene 2 clases y 2 elementos (0,0,2,2 > 0,0,1,1).
+   Evitamos por completo el uso de !important, resolviendo conflictos con selectores estructurados.
+   ========================================================================== */
+
+/* ==========================================================================
+   5.2 DEMOSTRACIÓN COMPLETA DE SELECTORES CSS (CON COMENTARIOS REQUERIDOS)
+   ========================================================================== */
+
+/* ========== SELECTOR: Universal | Ejemplo: * | Qué hace: Aplica box-sizing: border-box y elimina márgenes y rellenos por defecto en todos los elementos del DOM ========== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ========== SELECTOR: Elemento | Ejemplo: body | Qué hace: Establece tipografía base, color de texto principal y fondo con screentone a nivel de documento ========== */
+body {
+  font-family: var(--fuente-texto);
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--color-tinta);
+  background-color: var(--color-papel);
+  /* Fondo Screentone estilo trama de manga impresa al 5% de opacidad */
+  background-image: radial-gradient(var(--color-tinta) 0.6px, transparent 0.6px);
+  background-size: 20px 20px;
+  background-attachment: fixed;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+}
+
+/* ========== SELECTOR: Agrupación (coma) | Ejemplo: h1, h2, h3 | Qué hace: Asigna de forma unificada la tipografía Anton de estilo titular manga y transformación a mayúsculas ========== */
+h1, h2, h3, h4 {
+  font-family: var(--fuente-titulos);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  line-height: 1.15;
+  color: var(--color-tinta);
+}
+
+/* ========== SELECTOR: Elemento | Ejemplo: h1 | Qué hace: Define el tamaño máximo de jerarquía para el título principal único de cada página ========== */
+h1 {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  margin-bottom: var(--espacio-medio);
+}
+
+/* ========== SELECTOR: Elemento | Ejemplo: h2 | Qué hace: Establece el tamaño de encabezado de segundo nivel para las secciones temáticas ========== */
+h2 {
+  font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+  margin-bottom: var(--espacio-pequeno);
+}
+
+/* ========== SELECTOR: Elemento | Ejemplo: h3 | Qué hace: Establece el tamaño de los títulos de cada volumen de manga y tarjetas ========== */
+h3 {
+  font-size: 1.35rem;
+  margin-bottom: 4px;
+}
+
+/* ========== SELECTOR: Elemento | Ejemplo: p | Qué hace: Define espaciado inferior y consistencia de lectura para los párrafos descriptivos ========== */
+p {
+  margin-bottom: var(--espacio-pequeno);
+}
+
+/* ========== SELECTOR: Elemento | Ejemplo: a | Qué hace: Quita el subrayado predeterminado y hereda el color base con transición suave para enlaces ========== */
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.2s ease, background-color 0.2s ease, transform 0.2s ease;
+}
+
+/* ========== SELECTOR: Elemento | Ejemplo: img | Qué hace: Garantiza imágenes adaptables que respetan el contenedor sin desbordarse ========== */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ========== SELECTOR: Elemento | Ejemplo: ul | Qué hace: Quita viñetas estándar para permitir listas personalizadas estilo manga ========== */
+ul {
+  list-style: none;
+}
+
+/* ========== SELECTOR: Elemento | Ejemplo: table | Qué hace: Colapsa los bordes de la tabla y ocupa el ancho completo disponible ========== */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: var(--espacio-medio);
+  margin-bottom: var(--espacio-grande);
+  background-color: var(--color-superficie);
+  border: 2px solid var(--color-tinta);
+  box-shadow: var(--sombra-dura);
+}
+
+/* ========== SELECTOR: Clase | Ejemplo: .tarjeta-manga | Qué hace: Aplica estilo de panel manga con borde de 2px, esquinas a 0px y sombra dura sin desenfoque ========== */
+.tarjeta-manga {
+  background-color: var(--color-superficie);
+  border: 2px solid var(--color-borde);
+  border-radius: var(--radio-cero);
+  box-shadow: var(--sombra-dura);
+  display: flex;
+  flex-direction: column;
+  padding: var(--espacio-pequeno);
+  position: relative;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* ========== SELECTOR: Clase | Ejemplo: .boton-primario | Qué hace: Aplica botón rojo de compra con sombra dura y esquinas de 4px táctiles ========== */
+.boton-primario {
+  background-color: var(--color-primario);
+  color: #ffffff;
+  font-family: var(--fuente-titulos);
+  font-size: 1.15rem;
+  padding: 12px 24px;
+  border: 2px solid var(--color-tinta);
+  border-radius: var(--radio-boton);
+  box-shadow: var(--sombra-dura);
+  cursor: pointer;
+  display: inline-block;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* ========== SELECTOR: Id | Ejemplo: #encabezado-sitio | Qué hace: Fija el encabezado en la parte superior con borde inferior y sombra dura ========== */
+#encabezado-sitio {
+  background-color: var(--color-papel);
+  border-bottom: 2px solid var(--color-tinta);
+  box-shadow: var(--sombra-dura);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  width: 100%;
+}
+
+/* ========== SELECTOR: Id | Ejemplo: #bloque-suscripcion | Qué hace: Aplica fondo oscuro inverso de alto impacto para la sección de boletín informativo ========== */
+#bloque-suscripcion {
+  background-color: var(--color-tinta);
+  color: var(--color-texto-inverso);
+  border-top: 4px solid var(--color-primario);
+  border-bottom: 2px solid var(--color-tinta);
+  padding: var(--espacio-seccion) 0;
+  position: relative;
+}
+
+/* ========== SELECTOR: Elemento + clase | Ejemplo: article.tarjeta-manga | Qué hace: Aumenta especificidad para asegurar que las tarjetas artículo manejen altura completa ========== */
+article.tarjeta-manga {
+  height: 100%;
+}
+
+/* ========== SELECTOR: Elemento + clase | Ejemplo: p.descripcion-manga | Qué hace: Limita la altura y estiliza el extracto del manga con tipografía Hanken Grotesk ========== */
+p.descripcion-manga {
+  color: var(--color-texto-secundario);
+  font-size: 0.92rem;
+  line-height: 1.45;
+  margin-top: 6px;
+  margin-bottom: var(--espacio-medio);
+}
+
+/* ========== SELECTOR: Elemento + clase | Ejemplo: a.boton-accion | Qué hace: Estiliza enlaces para que luzcan y se comporten como botones secundarios ========== */
+a.boton-accion {
+  background-color: var(--color-tinta);
+  color: var(--color-papel);
+  font-family: var(--fuente-etiquetas);
+  font-size: 0.85rem;
+  font-weight: 700;
+  padding: 8px 14px;
+  border: 2px solid var(--color-tinta);
+  border-radius: var(--radio-boton);
+  text-transform: uppercase;
+  display: inline-block;
+}
+
+/* ========== SELECTOR: Combinador descendiente | Ejemplo: nav a | Qué hace: Estiliza todos los enlaces que se encuentren dentro de cualquier barra de navegación ========== */
+nav a {
+  font-family: var(--fuente-titulos);
+  font-size: 1.15rem;
+  letter-spacing: 0.5px;
+  padding: 6px 12px;
+  border-bottom: 3px solid transparent;
+}
+
+/* ========== SELECTOR: Combinador hijo directo | Ejemplo: ul > li | Qué hace: Selecciona únicamente los elementos de lista que sean hijos directos de un elemento ul ========== */
+ul.lista-beneficios > li {
+  position: relative;
+  padding-left: 32px;
+  margin-bottom: var(--espacio-pequeno);
+  font-size: 1.05rem;
+}
+
+/* ========== SELECTOR: Combinador hermano adyacente | Ejemplo: h2 + p | Qué hace: Estiliza el primer párrafo inmediatamente posterior a un encabezado h2 como bajada o subtítulo ========== */
+h2 + p.subtitulo-seccion {
+  font-size: 1.15rem;
+  color: var(--color-texto-secundario);
+  font-weight: 600;
+  margin-bottom: var(--espacio-grande);
+}
+
+/* ========== SELECTOR: Combinador hermano general | Ejemplo: h2 ~ p | Qué hace: Da estilo de lectura amplio a todos los párrafos que sucedan a un h2 dentro del mismo bloque ========== */
+.contenido-articulo h2 ~ p {
+  color: var(--color-tinta);
+  line-height: 1.7;
+}
+
+/* ========== SELECTOR: Pseudoclase | Ejemplo: :hover | Qué hace: Desplaza la tarjeta 4px arriba-izquierda en hover creando el efecto de relieve pop ========== */
+.tarjeta-manga:hover {
+  transform: translate(-4px, -4px);
+  box-shadow: var(--sombra-dura-grande);
+}
+
+/* ========== SELECTOR: Pseudoclase | Ejemplo: :focus | Qué hace: Ilumina con borde carmesí de 2px e indicador visible cualquier input que reciba foco de teclado ========== */
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  border-color: var(--color-primario);
+  box-shadow: 0 0 0 3px rgba(183, 16, 42, 0.25);
+}
+
+/* ========== SELECTOR: Pseudoclase | Ejemplo: :active | Qué hace: Presiona el botón devolviéndolo a su posición base cuando el usuario hace clic ========== */
+.boton-primario:active,
+a.boton-accion:active {
+  transform: translate(2px, 2px);
+  box-shadow: var(--sombra-dura-pequena);
+}
+
+/* ========== SELECTOR: Pseudoclase | Ejemplo: :link | Qué hace: Estiliza los hipervínculos no visitados asegurando color primario distinguible ========== */
+.enlace-destacado:link {
+  color: var(--color-primario);
+  text-decoration: underline;
+}
+
+/* ========== SELECTOR: Pseudoclase | Ejemplo: :visited | Qué hace: Indica enlaces ya visitados con tonalidad secundaria sin romper la armonía visual ========== */
+.enlace-destacado:visited {
+  color: var(--color-secundario);
+}
+
+/* ========== SELECTOR: Pseudoclase | Ejemplo: :first-child | Qué hace: Aplica un borde rojo superior al primer elemento de una lista de detalles ========== */
+ul.lista-beneficios > li:first-child {
+  font-weight: 700;
+}
+
+/* ========== SELECTOR: Pseudoclase | Ejemplo: :last-child | Qué hace: Remueve el margen inferior en el último elemento dentro de una columna o contenedor ========== */
+.columna-informacion > p:last-child {
+  margin-bottom: 0;
+}
+
+/* ========== SELECTOR: Pseudoclase | Ejemplo: :nth-child(2n) | Qué hace: Alterna el color de fondo en las filas pares de la tabla comparativa de ediciones ========== */
+table tbody tr:nth-child(2n) {
+  background-color: var(--color-superficie-baja);
+}
+
+/* ========== SELECTOR: Pseudoelemento | Ejemplo: ::before | Qué hace: Inserta el ícono cuadrado rojo característico del estilo manga antes de los ítems de lista ========== */
+ul.lista-beneficios > li::before {
+  content: "■";
+  color: var(--color-primario);
+  font-size: 1.1rem;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+/* ========== SELECTOR: Pseudoelemento | Ejemplo: ::after | Qué hace: Agrega una flecha decorativa al final de los enlaces de tipo 'Ver catálogo completo' ========== */
+a.enlace-con-flecha::after {
+  content: " →";
+  font-weight: bold;
+  transition: transform 0.2s ease;
+  display: inline-block;
+}
+a.enlace-con-flecha:hover::after {
+  transform: translateX(4px);
+}
+
+/* ========== SELECTOR: Pseudoelemento | Ejemplo: ::first-letter | Qué hace: Aplica estilo capitular agrandado a la primera letra del primer párrafo de la guía ========== */
+p.parrafo-capitular::first-letter {
+  font-family: var(--fuente-titulos);
+  font-size: 3.2rem;
+  float: left;
+  line-height: 0.8;
+  margin-right: 8px;
+  color: var(--color-primario);
+}
+
+/* ========== SELECTOR: Pseudoelemento | Ejemplo: ::first-line | Qué hace: Resalta en negrita y mayúsculas la primera línea de la introducción de coleccionistas ========== */
+p.parrafo-destacado::first-line {
+  font-family: var(--fuente-titulos);
+  letter-spacing: 1px;
+  color: var(--color-primario);
+}
+
+/* ========== SELECTOR: Pseudoelemento | Ejemplo: ::marker | Qué hace: Colorea los números de las listas ordenadas <ol> con el rojo primario de la tienda ========== */
+ol.lista-pasos-lectura li::marker {
+  color: var(--color-primario);
+  font-family: var(--fuente-titulos);
+  font-size: 1.25rem;
+}
+
+/* ========== SELECTOR: Pseudoelemento | Ejemplo: ::selection | Qué hace: Personaliza la selección de texto con fondo carmesí y texto blanco puro ========== */
+::selection {
+  background-color: var(--color-primario);
+  color: #ffffff;
+}
+
+/* ========== SELECTOR: Atributo | Ejemplo: a[target] | Qué hace: Agrega estilo cursor externo a enlaces que abren una pestaña nueva ========== */
+a[target="_blank"] {
+  cursor: alias;
+}
+
+/* ========== SELECTOR: Atributo | Ejemplo: input[type="text"] | Qué hace: Establece ancho, tipografía monoespaciada y bordes duros a campos de texto ========== */
+input[type="text"],
+input[type="search"] {
+  font-family: var(--fuente-etiquetas);
+  font-size: 0.9rem;
+  padding: 10px 14px;
+  background-color: var(--color-superficie);
+  border: 2px solid var(--color-tinta);
+  border-radius: var(--radio-cero);
+}
+
+/* ========== SELECTOR: Atributo | Ejemplo: input[type="email"] | Qué hace: Diseña el campo de suscripción con tipografía clara y sin esquinas redondeadas ========== */
+input[type="email"] {
+  font-family: var(--fuente-etiquetas);
+  font-size: 0.95rem;
+  padding: 12px 16px;
+  background-color: var(--color-superficie);
+  border: 2px solid var(--color-tinta);
+  border-radius: var(--radio-cero);
+}
+
+/* ========== SELECTOR: Atributo | Ejemplo: a[href^="https"] | Qué hace: Identifica enlaces externos seguros que inician con protocolo https:// ========== */
+a[href^="https"] {
+  font-weight: 600;
+}
+
+/* ========== SELECTOR: Atributo | Ejemplo: a[href$=".html"] | Qué hace: Aplica transición de navegación a todos los enlaces internos que terminan en extensión .html ========== */
+a[href$=".html"] {
+  position: relative;
+}
+
+/* ========== SELECTOR: Atributo | Ejemplo: a[href*="manga"] | Qué hace: Detecta cualquier enlace que contenga la palabra clave 'manga' en su ruta ========== */
+a[href*="manga"] {
+  letter-spacing: 0.2px;
+}
+
+/* ========== SELECTOR: Atributo | Ejemplo: [class*="etiqueta"] | Qué hace: Selecciona cualquier elemento que contenga la subcadena 'etiqueta' en su atributo class ========== */
+[class*="etiqueta"] {
+  font-family: var(--fuente-etiquetas);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* ========== SELECTOR: Atributo | Ejemplo: [class="boton-primario"] | Qué hace: Selección exacta por valor del atributo class para el botón primario de compra ========== */
+[class="boton-primario"] {
+  font-weight: normal;
+}
+
+/* ==========================================================================
+   MODELO DE CAJA Y MODOS DE VISUALIZACIÓN (DISPLAY)
+   --------------------------------------------------------------------------
+   - margin: Espacio externo alrededor de la caja.
+   - border: Contorno delimitador sólido de 2px de estilo cómic.
+   - padding: Espacio interno entre el borde y el contenido.
+   - width / height: Dimensiones calculadas según box-sizing: border-box.
+   - display block / inline / inline-block explicados y usados puntualmente.
+   ========================================================================== */
+
+/* Bloque contenedor central con límites y márgenes laterales */
+.contenedor {
+  width: 100%;
+  max-width: var(--ancho-maximo);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--margen-movil);
+  padding-right: var(--margen-movil);
+}
+
+/* DISPLAY: BLOCK — Elemento que ocupa todo el ancho de su línea */
+.bloque-completo {
+  display: block;
+  width: 100%;
+}
+
+/* DISPLAY: INLINE-BLOCK — Permite aplicar dimensiones, padding y margin respetando el flujo de texto (usado en etiquetas/chips) */
+.etiqueta-chip {
+  display: inline-block;
+  padding: 4px 8px;
+  border: 1px solid var(--color-tinta);
+  background-color: var(--color-tinta);
+  color: var(--color-papel);
+  margin-right: 6px;
+  margin-bottom: 6px;
+}
+
+/* DISPLAY: INLINE — Fluye de forma natural con el texto sin generar quiebre de línea */
+.texto-resaltado {
+  display: inline;
+  color: var(--color-primario);
+  font-weight: 700;
+}
+
+/* ==========================================================================
+   /* ===== TÉCNICA DE MAQUETACIÓN 1: FLEXBOX ===== */
+   Utilizado en: Encabezado/navegación, Hero layout, Footer, Barras de precios,
+   y Franja de editoriales.
+   ========================================================================== */
+.barra-navegacion {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: var(--espacio-pequeno);
+  padding-bottom: var(--espacio-pequeno);
+  gap: var(--espacio-medio);
+  flex-wrap: wrap; /* Permite que el menú se reorganice en móviles sin JavaScript */
+}
+
+.logo-sitio {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.menu-principal {
+  display: flex;
+  align-items: center;
+  gap: var(--espacio-pequeno);
+  flex-wrap: wrap;
+}
+
+.menu-principal a.enlace-activo {
+  color: var(--color-primario);
+  border-bottom: 3px solid var(--color-primario);
+}
+
+.formulario-busqueda {
+  display: flex;
+  align-items: center;
+  gap: 0;
+}
+
+.formulario-busqueda button {
+  background-color: var(--color-tinta);
+  color: #ffffff;
+  border: 2px solid var(--color-tinta);
+  border-left: none;
+  padding: 10px 14px;
+  cursor: pointer;
+  font-family: var(--fuente-titulos);
+  font-size: 1rem;
+}
+
+/* Hero con maquetación Flexbox */
+.bloque-hero {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-grande);
+  align-items: center;
+  padding-top: var(--espacio-seccion);
+  padding-bottom: var(--espacio-seccion);
+}
+
+.hero-informacion {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--espacio-medio);
+  flex: 1;
+}
+
+.hero-visual {
+  flex: 1;
+  width: 100%;
+  max-width: 440px;
+}
+
+.hero-visual figure {
+  border: 3px solid var(--color-tinta);
+  box-shadow: var(--sombra-dura-grande);
+  background-color: #ffffff;
+  overflow: hidden;
+}
+
+.hero-visual figcaption {
+  font-family: var(--fuente-etiquetas);
+  font-size: 0.8rem;
+  padding: 8px 12px;
+  background-color: var(--color-tinta);
+  color: var(--color-papel);
+  text-align: center;
+}
+
+.botones-hero {
+  display: flex;
+  gap: var(--espacio-medio);
+  flex-wrap: wrap;
+}
+
+.boton-secundario {
+  background-color: var(--color-superficie);
+  color: var(--color-tinta);
+  font-family: var(--fuente-titulos);
+  font-size: 1.15rem;
+  padding: 12px 24px;
+  border: 2px solid var(--color-tinta);
+  border-radius: var(--radio-boton);
+  box-shadow: var(--sombra-dura);
+  cursor: pointer;
+  display: inline-block;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+/* Barra de precio y botón en la tarjeta de manga */
+.pie-tarjeta-manga {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: auto;
+  padding-top: var(--espacio-pequeno);
+  border-top: 1px dashed var(--color-borde);
+}
+
+.precio-manga {
+  font-family: var(--fuente-titulos);
+  font-size: 1.5rem;
+  color: var(--color-primario);
+}
+
+/* Franja de editoriales y aliados */
+.franja-editoriales {
+  background-color: var(--color-superficie-media);
+  border-top: 2px solid var(--color-tinta);
+  border-bottom: 2px solid var(--color-tinta);
+  padding: var(--espacio-grande) 0;
+  text-align: center;
+}
+
+.editoriales-lista {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--espacio-grande);
+  flex-wrap: wrap;
+  margin-top: var(--espacio-medio);
+}
+
+.editorial-item {
+  background-color: var(--color-tinta);
+  color: var(--color-papel);
+  font-family: var(--fuente-titulos);
+  font-size: 1.25rem;
+  padding: 10px 20px;
+  border: 2px solid var(--color-tinta);
+  box-shadow: var(--sombra-dura-pequena);
+  letter-spacing: 1.5px;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.editorial-item:hover {
+  background-color: var(--color-primario);
+  transform: translateY(-2px);
+}
+
+/* Formulario de newsletter suscripción con Flexbox */
+.formulario-suscripcion {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-pequeno);
+  max-width: 540px;
+  width: 100%;
+}
+
+.newsletter-contenedor {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-grande);
+  align-items: center;
+}
+
+/* Footer estructurado con Flexbox */
+.pie-de-pagina {
+  background-color: var(--color-superficie-inversa);
+  color: var(--color-texto-inverso);
+  border-top: 4px solid var(--color-primario);
+  padding: var(--espacio-seccion) 0 var(--espacio-grande);
+  margin-top: auto;
+}
+
+.footer-columnas {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-grande);
+}
+
+.footer-seccion h4 {
+  color: #ffffff;
+  font-size: 1.15rem;
+  margin-bottom: var(--espacio-pequeno);
+  border-left: 3px solid var(--color-primario);
+  padding-left: 8px;
+}
+
+.footer-seccion ul li {
+  margin-bottom: 6px;
+}
+
+.footer-seccion a {
+  color: #dce5d9;
+}
+.footer-seccion a:hover {
+  color: var(--color-primario);
+  text-decoration: underline;
+}
+
+.footer-creditos {
+  margin-top: var(--espacio-grande);
+  padding-top: var(--espacio-medio);
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: center;
+  font-size: 0.85rem;
+  text-align: center;
+  color: #d4ddd1;
+}
+
+/* ==========================================================================
+   /* ===== TÉCNICA DE MAQUETACIÓN 2: CSS GRID ===== */
+   Utilizado en: Cuadrícula del catálogo de productos (12 tarjetas), Bloque de
+   últimos lanzamientos, y Layout principal de Catálogo con Aside lateral.
+   ========================================================================== */
+
+/* Bloque lanzamientos de inicio en CSS Grid */
+.cuadricula-lanzamientos {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--espacio-grande);
+  margin-top: var(--espacio-grande);
+  margin-bottom: var(--espacio-seccion);
+}
+
+/* Cuadrícula de 12 tarjetas en catalogo.html */
+.cuadricula-catalogo {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--espacio-grande);
+  margin-bottom: var(--espacio-seccion);
+}
+
+/* Layout de dos columnas con Grid para catálogo (Aside lateral + Productos) */
+.layout-catalogo {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--espacio-grande);
+  padding-top: var(--espacio-grande);
+}
+
+/* Aside de filtros en catalogo.html */
+.aside-filtros {
+  background-color: var(--color-superficie);
+  border: 2px solid var(--color-tinta);
+  box-shadow: var(--sombra-dura);
+  padding: var(--espacio-medio);
+  height: fit-content;
+}
+
+.grupo-filtro {
+  margin-bottom: var(--espacio-medio);
+  border-bottom: 1px dashed var(--color-borde);
+  padding-bottom: var(--espacio-pequeno);
+}
+
+.grupo-filtro:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.grupo-filtro h4 {
+  font-size: 1rem;
+  margin-bottom: 8px;
+  color: var(--color-primario);
+}
+
+/* Estilo para las figuras dentro de cada tarjeta */
+.tarjeta-manga figure {
+  margin: 0;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--color-tinta);
+  background-color: var(--color-superficie-baja);
+}
+
+.tarjeta-manga figure img {
+  width: 100%;
+  aspect-ratio: 2 / 3;
+  object-fit: cover;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.tarjeta-manga:hover figure img {
+  transform: scale(1.03);
+}
+
+.tarjeta-manga figcaption {
+  font-family: var(--fuente-etiquetas);
+  font-size: 0.75rem;
+  padding: 4px 8px;
+  background-color: var(--color-tinta);
+  color: #ffffff;
+  display: flex;
+  justify-content: space-between;
+}
+
+.autor-manga {
+  font-family: var(--fuente-texto);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-texto-secundario);
+}
+
+/* ==========================================================================
+   ESTILOS COMPLEMENTARIOS PARA PÁGINA 3 (GUÍA DEL COLECCIONISTA)
+   ========================================================================== */
+.guia-seccion {
+  padding: var(--espacio-grande) 0;
+  border-bottom: 2px solid var(--color-tinta);
+}
+
+.guia-seccion:last-of-type {
+  border-bottom: none;
+}
+
+/* Lista de definición <dl> para demografías de manga */
+dl.definiciones-demografias {
+  background-color: var(--color-superficie);
+  border: 2px solid var(--color-tinta);
+  box-shadow: var(--sombra-dura);
+  padding: var(--espacio-grande);
+  margin-top: var(--espacio-medio);
+}
+
+dl.definiciones-demografias dt {
+  font-family: var(--fuente-titulos);
+  font-size: 1.3rem;
+  color: var(--color-primario);
+  margin-top: var(--espacio-medio);
+  letter-spacing: 0.5px;
+}
+
+dl.definiciones-demografias dt:first-child {
+  margin-top: 0;
+}
+
+dl.definiciones-demografias dd {
+  font-size: 1rem;
+  color: var(--color-tinta);
+  margin-left: 0;
+  padding-left: var(--espacio-pequeno);
+  border-left: 3px solid var(--color-tinta);
+  margin-top: 4px;
+}
+
+/* Estilos de tabla comparativa con encabezados accesibles scope */
+table caption {
+  font-family: var(--fuente-titulos);
+  font-size: 1.25rem;
+  padding: 10px;
+  background-color: var(--color-tinta);
+  color: #ffffff;
+  letter-spacing: 1px;
+}
+
+table th,
+table td {
+  padding: 12px 14px;
+  text-align: left;
+  border: 1px solid var(--color-tinta);
+}
+
+table th {
+  background-color: var(--color-superficie-alta);
+  font-family: var(--fuente-titulos);
+  font-size: 1.05rem;
+  letter-spacing: 0.5px;
+}
+
+table tbody th {
+  background-color: var(--color-superficie-media);
+}
+
+/* Preguntas frecuentes con <details> y <summary> */
+details.faq-item {
+  background-color: var(--color-superficie);
+  border: 2px solid var(--color-tinta);
+  box-shadow: var(--sombra-dura-pequena);
+  padding: 14px;
+  margin-bottom: var(--espacio-pequeno);
+}
+
+details.faq-item summary {
+  font-family: var(--fuente-titulos);
+  font-size: 1.15rem;
+  cursor: pointer;
+  color: var(--color-tinta);
+  letter-spacing: 0.5px;
+}
+
+details.faq-item summary:hover {
+  color: var(--color-primario);
+}
+
+details.faq-item p {
+  margin-top: 10px;
+  margin-bottom: 0;
+  padding-top: 8px;
+  border-top: 1px dashed var(--color-borde);
+}
+
+/* Formulario de contacto en la guía */
+.formulario-contacto {
+  background-color: var(--color-superficie);
+  border: 2px solid var(--color-tinta);
+  box-shadow: var(--sombra-dura);
+  padding: var(--espacio-grande);
+  margin-top: var(--espacio-medio);
+  max-width: 680px;
+}
+
+.campo-formulario {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: var(--espacio-medio);
+}
+
+.campo-formulario label {
+  font-family: var(--fuente-etiquetas);
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.campo-formulario textarea {
+  font-family: var(--fuente-texto);
+  font-size: 0.95rem;
+  padding: 10px 14px;
+  background-color: var(--color-superficie);
+  border: 2px solid var(--color-tinta);
+  border-radius: var(--radio-cero);
+  resize: vertical;
+  min-height: 120px;
+}
+
+/* ==========================================================================
+   5.5 DISEÑO RESPONSIVO (MOBILE-FIRST) CON MEDIA QUERIES
+   - Móvil por defecto: Catálogo en 1 columna.
+   - Tableta @media (min-width: 600px): Catálogo en 2 columnas.
+   - Escritorio @media (min-width: 1024px): Catálogo en 3 columnas.
+   - Comprobación: Sin desbordamiento horizontal a 360px, 768px y 1440px.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   TABLETA: Ancho mínimo 600px
+   -------------------------------------------------------------------------- */
+@media (min-width: 600px) {
+  .contenedor {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  /* Catálogo en 2 COLUMNAS para tableta */
+  .cuadricula-catalogo {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .cuadricula-lanzamientos {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .formulario-suscripcion {
+    flex-direction: row;
+  }
+
+  .formulario-suscripcion input[type="email"] {
+    flex: 1;
+  }
+
+  .formulario-suscripcion button {
+    border-left: none;
+  }
+
+  .footer-columnas {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   ESCRITORIO: Ancho mínimo 1024px
+   -------------------------------------------------------------------------- */
+@media (min-width: 1024px) {
+  .contenedor {
+    padding-left: var(--margen-escritorio);
+    padding-right: var(--margen-escritorio);
+  }
+
+  .bloque-hero {
+    flex-direction: row;
+    gap: var(--espacio-seccion-lg);
+  }
+
+  /* Layout de Catálogo: Aside lateral de 280px + Área principal de productos */
+  .layout-catalogo {
+    grid-template-columns: 280px 1fr;
+    align-items: start;
+  }
+
+  /* Catálogo en 3 COLUMNAS para escritorio (cumpliendo rúbrica de la profesora) */
+  .cuadricula-catalogo {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  /* Cuatro columnas para lanzamientos en inicio */
+  .cuadricula-lanzamientos {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .footer-columnas {
+    grid-template-columns: 2fr 1fr 1fr;
+  }
+
+  .footer-creditos {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}

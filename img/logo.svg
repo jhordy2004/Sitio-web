@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 50" width="260" height="50">
+  <rect x="2" y="4" width="42" height="42" fill="#b7102a" stroke="#161d16" stroke-width="2"/>
+  <polygon points="23,10 37,38 9,38" fill="#f3fcf0"/>
+  <circle cx="23" cy="27" r="5" fill="#b7102a"/>
+  <text x="54" y="37" font-family="'Anton', Impact, sans-serif" font-size="34" fill="#b7102a" letter-spacing="1">MANGA</text>
+  <text x="165" y="37" font-family="'Anton', Impact, sans-serif" font-size="34" fill="#161d16" letter-spacing="1">VOID</text>
+</svg>
