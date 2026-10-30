@@ -122,33 +122,33 @@
 <body>
 
   <!-- ========================================================================
-       ENCABEZADO PRINCIPAL (HEADER + NAV + BUSCADOR)
+       ENCABEZADO PRINCIPAL (HEADER + NAVBAR + BUSCADOR RESPONSIVO)
        Semántica: <header>, <nav>
        ======================================================================== -->
-  <header id="encabezado-sitio">
-    <div class="contenedor barra-navegacion">
-      
-      <!-- Logo de Manga Void -->
-      <a href="index.html" class="logo-sitio" title="Inicio - Manga Void">
-        <img src="img/logo.svg" alt="Logotipo oficial de Manga Void en rojo carmesí y tinta negra" width="220" height="42">
+  <header class="encabezado-principal" id="encabezado-principal">
+    <div class="encabezado__contenido">
+      <a class="logo" href="index.html" title="Inicio - Manga Void">
+        <svg class="logo__icono" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 46 46" width="36" height="36" aria-hidden="true">
+          <rect x="2" y="2" width="42" height="42" fill="#b7102a" stroke="#161d16" stroke-width="2"/>
+          <polygon points="23,8 37,36 9,36" fill="#f3fcf0"/>
+          <circle cx="23" cy="25" r="5" fill="#b7102a"/>
+        </svg>
+        <span class="logo__rojo">MANGA</span> <span>VOID</span>
       </a>
-
-      <!-- Menú principal con enlace actual resaltado -->
-      <nav aria-label="Navegación principal del sitio">
-        <div class="menu-principal">
-          <a href="index.html">Inicio</a>
-          <a href="catalogo.html" class="enlace-activo" aria-current="page">Catálogo</a>
-          <a href="pagina3.html">Guía del Coleccionista</a>
-        </div>
+      <input type="checkbox" id="menu-toggle" class="menu-toggle">
+      <label for="menu-toggle" class="menu-boton" aria-label="Abrir o cerrar el menú">☰</label>
+      <nav class="menu" aria-label="Navegación principal">
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="catalogo.html" aria-current="page">Catálogo</a></li>
+          <li><a href="pagina3.html">Guía del Coleccionista</a></li>
+        </ul>
       </nav>
-
-      <!-- Formulario de búsqueda accesible -->
-      <form class="formulario-busqueda" action="#" method="get" role="search">
-        <label for="buscar-manga-catalogo" style="position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); border: 0;">Buscar mangas en el catálogo</label>
-        <input type="search" id="buscar-manga-catalogo" name="q" placeholder="Buscar por título, autor o demografía..." required>
-        <button type="submit" aria-label="Ejecutar búsqueda">BUSCAR</button>
+      <form class="buscador" role="search" action="#">
+        <label class="solo-lectores" for="buscar">Buscar manga</label>
+        <input type="search" id="buscar" name="q" placeholder="Buscar manga, autor...">
+        <button type="submit">BUSCAR</button>
       </form>
-
     </div>
   </header>
 

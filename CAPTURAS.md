@@ -3,7 +3,7 @@
 **Docente:** Mgtr. Karla Yadira Abad Sacoto  
 **Estudiante:** Marco Córdova Rivera  
 
-Este documento lista la ubicación exacta (archivo y número de línea) de cada elemento evaluado en la rúbrica docente para que tomes las capturas de pantalla de tu editor de código y de la web para el informe final en formato PDF.
+Este documento lista la ubicación exacta (archivo y número de línea) de cada elemento evaluado en la rúbrica docente para que tomes las capturas de pantalla de tu editor de código y del navegador web para el informe final en formato PDF.
 
 ---
 
@@ -33,38 +33,45 @@ Todos los selectores tienen el encabezado destacado obligatorio:
 | **2b** | **Elemento** | Líneas 120-165 | `h1`, `h2`, `h3`, `p`, `a`, `img`, `ul`, `table` | Estilos base para elementos de texto y tablas. |
 | **3** | **Clase** | Línea 173 | `.tarjeta-manga` | Borde de 2px, esquinas a 0px y sombra dura. |
 | **3b** | **Clase** | Línea 186 | `.boton-primario` | Botón carmesí con esquinas a 4px y sombra dura. |
-| **4** | **Id** | Línea 203 | `#encabezado-sitio` | Fija el header superior con sombra sólida. |
-| **4b** | **Id** | Línea 214 | `#bloque-suscripcion` | Bloque oscuro inverso con borde superior rojo. |
-| **5** | **Elemento + Clase** | Línea 224 | `article.tarjeta-manga` | Especificidad alta para tarjetas artículo. |
-| **5b** | **Elemento + Clase** | Línea 229 | `p.descripcion-manga` | Formato al párrafo de sinopsis del manga. |
-| **5c** | **Elemento + Clase** | Línea 238 | `a.boton-accion` | Enlace con apariencia de botón secundario. |
+| **4** | **Id** | Línea 203 | `#encabezado-principal` | Fija el header superior con position sticky, z-index 100 y borde inferior sólido de 4px color tinta. |
+| **4b** | **Id** | Línea 215 | `#bloque-suscripcion` | Bloque oscuro inverso con borde superior rojo. |
+| **5** | **Elemento + Clase** | Línea 225 | `article.tarjeta-manga` | Especificidad alta para tarjetas artículo. |
+| **5b** | **Elemento + Clase** | Línea 230 | `p.descripcion-manga` | Formato al párrafo de sinopsis del manga. |
+| **5c** | **Elemento + Clase** | Línea 239 | `a.boton-accion` | Enlace con apariencia de botón secundario. |
 | **6** | **Agrupación (coma)** | Línea 111 | `h1, h2, h3, h4` | Unifica la fuente Anton en titulares. |
-| **7** | **Combinador Descendiente** | Línea 252 | `nav a` | Enlaces contenidos dentro del nav. |
-| **7b** | **Combinador Hijo Directo** | Línea 261 | `ul.lista-beneficios > li` | Elementos `li` hijos directos de la lista. |
-| **7c** | **Combinador Hermano Adyacente** | Línea 269 | `h2 + p.subtitulo-seccion` | Párrafo inmediatamente posterior a un h2. |
-| **7d** | **Combinador Hermano General** | Línea 277 | `.contenido-articulo h2 ~ p` | Párrafos subsiguientes a un h2. |
-| **8** | **Pseudoclase :hover** | Línea 283 | `.tarjeta-manga:hover` | Efecto pop desplazando 4px arriba-izquierda. |
-| **8b** | **Pseudoclase :focus** | Línea 289 | `input:focus`, `textarea:focus` | Borde rojo primario y halo accesible. |
-| **8c** | **Pseudoclase :active** | Línea 298 | `.boton-primario:active` | Efecto de botón presionado al hacer clic. |
-| **8d** | **Pseudoclase :link** | Línea 305 | `.enlace-destacado:link` | Enlaces aún no visitados. |
-| **8e** | **Pseudoclase :visited** | Línea 311 | `.enlace-destacado:visited` | Enlaces ya visitados. |
-| **8f** | **Pseudoclase :first-child** | Línea 316 | `ul.lista-beneficios > li:first-child` | Resalta el primer beneficio en negrita. |
-| **8g** | **Pseudoclase :last-child** | Línea 321 | `.columna-informacion > p:last-child` | Quita el margen al último elemento. |
-| **8h** | **Pseudoclase :nth-child** | Línea 326 | `table tbody tr:nth-child(2n)` | Filas alternadas cebra en la tabla. |
-| **9** | **Pseudoelemento ::before** | Línea 331 | `ul.lista-beneficios > li::before` | Inserta viñeta de cuadrado rojo manga (■). |
-| **9b** | **Pseudoelemento ::after** | Línea 341 | `a.enlace-con-flecha::after` | Inserta flecha dinámica (→) que se desplaza. |
-| **9c** | **Pseudoelemento ::first-letter** | Línea 352 | `p.parrafo-capitular::first-letter` | Letra capital de 3.2rem al inicio de la guía. |
-| **9d** | **Pseudoelemento ::first-line** | Línea 362 | `p.parrafo-destacado::first-line` | Primera línea estilizada en mayúsculas. |
-| **9e** | **Pseudoelemento ::marker** | Línea 369 | `ol.lista-pasos-lectura li::marker` | Números rojos estilizados en la lista de lectura. |
-| **9f** | **Pseudoelemento ::selection** | Línea 376 | `::selection` | Fondo carmesí al seleccionar texto. |
-| **10** | **Atributo [target]** | Línea 382 | `a[target="_blank"]` | Cursor alias en enlaces externos. |
-| **10b** | **Atributo [type="text"]** | Línea 387 | `input[type="text"]`, `input[type="search"]` | Estilo uniforme para campos de texto. |
-| **10c** | **Atributo [type="email"]** | Línea 398 | `input[type="email"]` | Campo de correo con tipografía monoespaciada. |
-| **10d** | **Atributo [href^="https"]** | Línea 408 | `a[href^="https"]` | Detecta enlaces externos seguros. |
-| **10e** | **Atributo [href$=".html"]** | Línea 413 | `a[href$=".html"]` | Identifica enlaces a páginas HTML internas. |
-| **10f** | **Atributo [href*="manga"]** | Línea 418 | `a[href*="manga"]` | Enlaces que contienen la palabra manga. |
-| **10g** | **Atributo [class*="etiqueta"]**| Línea 423 | `[class*="etiqueta"]` | Formato tipográfico a todas las etiquetas. |
-| **10h** | **Atributo [class="..."]** | Línea 432 | `[class="boton-primario"]` | Coincidencia exacta por atributo de clase. |
+| **7** | **Combinador Descendiente** | Línea 253 | `nav a` | Enlaces contenidos dentro del nav. |
+| **7b** | **Combinador Hijo Directo (header)** | Línea 602 | `.menu > ul` | Aplica orientación en columna y espaciado vertical en el menú móvil. |
+| **7c** | **Combinador Hijo Directo (lista)** | Línea 262 | `ul.lista-beneficios > li` | Elementos `li` hijos directos de la lista. |
+| **7d** | **Combinador Hermano Adyacente (foco)**| Línea 546 | `.menu-toggle:focus-visible + .menu-boton` | Indicador de foco accesible al botón hamburguesa con teclado. |
+| **7e** | **Combinador Hermano Adyacente (texto)**| Línea 270 | `h2 + p.subtitulo-seccion` | Párrafo inmediatamente posterior a un h2. |
+| **7f** | **Combinador Hermano General (menú)** | Línea 597 | `.menu-toggle:checked ~ .menu` | Despliega el menú de navegación al marcarse el checkbox ☰ sin JS. |
+| **7g** | **Combinador Hermano General (texto)**| Línea 278 | `.contenido-articulo h2 ~ p` | Párrafos subsiguientes a un h2. |
+| **8** | **Pseudoclase :hover** | Líneas 572, 624, 687 | `.menu a:hover`, `.menu-boton:hover`, `.buscador button:hover` | Efectos hover destacados en menú, botón hamburguesa y búsqueda. |
+| **8b** | **Pseudoclase :focus** | Línea 663 | `.buscador input[type="search"]:focus` | Ilumina el borde del input a rojo primario sin variar los 44px de altura. |
+| **8c** | **Pseudoclase :focus-visible** | Línea 540 | `.menu-toggle:focus-visible` | Mantiene accesible por teclado el interruptor oculto del menú. |
+| **8d** | **Pseudoclase :checked** | Línea 579 | `.menu-toggle:checked + .menu-boton` | Activa fondo rojo en botón hamburguesa cuando el menú está abierto. |
+| **8e** | **Pseudoclase :active** | Línea 299 | `.boton-primario:active` | Efecto de botón presionado al hacer clic. |
+| **8f** | **Pseudoclase :link** | Línea 306 | `.enlace-destacado:link` | Enlaces aún no visitados. |
+| **8g** | **Pseudoclase :visited** | Línea 312 | `.enlace-destacado:visited` | Enlaces ya visitados. |
+| **8h** | **Pseudoclase :first-child** | Línea 317 | `ul.lista-beneficios > li:first-child` | Resalta el primer beneficio en negrita. |
+| **8i** | **Pseudoclase :last-child** | Línea 322 | `.columna-informacion > p:last-child` | Quita el margen al último elemento. |
+| **8j** | **Pseudoclase :nth-child** | Línea 327 | `table tbody tr:nth-child(2n)` | Filas alternadas cebra en la tabla. |
+| **9** | **Pseudoelemento ::before** | Línea 332 | `ul.lista-beneficios > li::before` | Inserta viñeta de cuadrado rojo manga (■). |
+| **9b** | **Pseudoelemento ::after** | Línea 342 | `a.enlace-con-flecha::after` | Inserta flecha dinámica (→) que se desplaza. |
+| **9c** | **Pseudoelemento ::first-letter** | Línea 353 | `p.parrafo-capitular::first-letter` | Letra capital de 3.2rem al inicio de la guía. |
+| **9d** | **Pseudoelemento ::first-line** | Línea 363 | `p.parrafo-destacado::first-line` | Primera línea estilizada en mayúsculas. |
+| **9e** | **Pseudoelemento ::marker** | Línea 370 | `ol.lista-pasos-lectura li::marker` | Números rojos estilizados en la lista de lectura. |
+| **9f** | **Pseudoelemento ::selection** | Línea 377 | `::selection` | Fondo carmesí al seleccionar texto. |
+| **10** | **Atributo [aria-current]** | Línea 630 | `a[aria-current="page"]` | Resalta el enlace activo en rojo con borde inferior de 3px. |
+| **10b** | **Atributo [type="search"]** | Línea 647 | `.buscador input[type="search"]` | Altura exacta de 44px, borde sólido y min-width: 0 anti-desbordamiento. |
+| **10c** | **Atributo [target]** | Línea 383 | `a[target="_blank"]` | Cursor alias en enlaces externos. |
+| **10d** | **Atributo [type="text"]** | Línea 388 | `input[type="text"]` | Estilo uniforme para campos de texto. |
+| **10e** | **Atributo [type="email"]** | Línea 399 | `input[type="email"]` | Campo de correo con tipografía monoespaciada. |
+| **10f** | **Atributo [href^="https"]** | Línea 409 | `a[href^="https"]` | Detecta enlaces externos seguros. |
+| **10g** | **Atributo [href$=".html"]** | Línea 414 | `a[href$=".html"]` | Identifica enlaces a páginas HTML internas. |
+| **10h** | **Atributo [href*="manga"]** | Línea 419 | `a[href*="manga"]` | Enlaces que contienen la palabra manga. |
+| **10i** | **Atributo [class*="etiqueta"]**| Línea 424 | `[class*="etiqueta"]` | Formato tipográfico a todas las etiquetas. |
+| **10j** | **Atributo [class="..."]** | Línea 433 | `[class="boton-primario"]` | Coincidencia exacta por atributo de clase. |
 
 ---
 
@@ -81,14 +88,15 @@ Todos los selectores tienen el encabezado destacado obligatorio:
 
 ---
 
-## 4. Capturas de las Dos Técnicas de Maquetación
+## 4. Capturas de las Técnicas de Maquetación
 
 ### Técnica 1: Flexbox
 - **Archivo:** `css/styles.css`
-- **Líneas:** 480-705
-- **Sección:** `/* ===== TÉCNICA DE MAQUETACIÓN 1: FLEXBOX ===== */`
+- **Secciones comentadas:**
+  - `/* ===== TÉCNICA DE MAQUETACIÓN 1: FLEXBOX ===== */` (Línea 483)
+  - `/* ===== TÉCNICA DE MAQUETACIÓN: FLEXBOX (header) ===== */` (Línea 488)
 - **Elementos donde se aplica:**
-  1. Barra de navegación y header (`.barra-navegacion`, `.menu-principal`).
+  1. Header y navegación (.encabezado__contenido, .menu, .buscador, .logo).
   2. Hero layout (`.bloque-hero`, `.botones-hero`).
   3. Barra de precio y botón de compra de cada tarjeta (`.pie-tarjeta-manga`).
   4. Franja de editoriales y aliados internacionales (`.editoriales-lista`).
@@ -97,8 +105,7 @@ Todos los selectores tienen el encabezado destacado obligatorio:
 
 ### Técnica 2: CSS Grid
 - **Archivo:** `css/styles.css`
-- **Líneas:** 707-775
-- **Sección:** `/* ===== TÉCNICA DE MAQUETACIÓN 2: CSS GRID ===== */`
+- **Sección comentada:** `/* ===== TÉCNICA DE MAQUETACIÓN 2: CSS GRID ===== */` (Línea 884)
 - **Elementos donde se aplica:**
   1. Cuadrícula de 12 tarjetas en el catálogo (`.cuadricula-catalogo`).
   2. Cuadrícula de 4 tarjetas en inicio (`.cuadricula-lanzamientos`).
@@ -106,18 +113,21 @@ Todos los selectores tienen el encabezado destacado obligatorio:
 
 ---
 
-## 5. Capturas de Variables CSS y Diseño Responsivo (Mobile-First)
+## 5. Capturas de Diseño Responsivo y Media Queries
 
 - **Variables CSS (:root):**
-  - Archivo: `css/styles.css`
-  - Líneas: 22-65
+  - Archivo: `css/styles.css` | Líneas: 22-65
   - Define más de 15 variables: colores carmesí, tinta, papel, fuentes Anton, Hanken Grotesk, JetBrains Mono, espaciado base 8px, sombras duras y radios.
-- **Diseño Responsivo con Media Queries:**
-  - Archivo: `css/styles.css`
-  - Líneas: 875-965
-  - **Móvil (< 600px):** 1 columna (regla base sin media query).
-  - **Tableta (`@media (min-width: 600px)`):** 2 columnas (`.cuadricula-catalogo { grid-template-columns: repeat(2, 1fr); }`).
-  - **Escritorio (`@media (min-width: 1024px)`):** 3 columnas cumpliendo la rúbrica docente (`.cuadricula-catalogo { grid-template-columns: repeat(3, 1fr); }`).
+- **Media Queries para el Encabezado y Catálogo:**
+  - **Móvil (< 768px):** Reglas base por defecto. Logo a la izquierda (order 1), botón ☰ a la derecha (order 2), menú desplegable vertical (order 3), buscador en fila inferior ocupando el 100% (order 4).
+  - **Tableta (`/* ===== MEDIA QUERY TABLETA (≥768px) ===== */`):**
+    - Archivo: `css/styles.css` | Línea 1156
+    - Fila 1: Logo + menú horizontal centrado (botón ☰ oculto).
+    - Fila 2: Buscador ocupando todo el ancho inferior.
+  - **Escritorio (`/* ===== MEDIA QUERY ESCRITORIO (≥1024px) ===== */`):**
+    - Archivo: `css/styles.css` | Línea 1203
+    - UNA sola fila: Logo a la izquierda, menú centrado y buscador a la derecha (ancho 300px).
+    - Catálogo en 3 columnas según rúbrica universitaria.
 
 ---
 
@@ -139,31 +149,19 @@ La profesora evalúa que el sitio esté validado formalmente en el Consorcio W3C
 ## 7. Capturas de Vistas Web (Navegador)
 
 Para armar el PDF, toma capturas de:
-1. **Página de Inicio (`index.html`) en Escritorio (1440px):**
-   - Header + Hero con edición de colección.
+1. **Página de Inicio (`index.html`) en Escritorio (≥1024px / 1440px):**
+   - Header en UNA sola fila (logo izquierda, menú centrado, buscador 300px derecha con input y botón perfectamente alineados a 44px).
+   - Hero con edición de colección.
    - Sección de 5 compromisos.
-   - Sección de 4 últimos lanzamientos + franja de editoriales + newsletter + footer.
-2. **Página de Catálogo (`catalogo.html`) en Escritorio (1440px):**
-   - Aside lateral de filtros + 3 columnas de tarjetas (12 tomos).
-3. **Página de Guía del Coleccionista (`pagina3.html`) en Escritorio (1440px):**
-   - Glosario de demografías (`<dl>`).
-   - Tabla comparativa de formatos.
-   - Infografía didáctica de lectura oriental (`<ol>` + `<figure>`).
-   - Acordeón de preguntas frecuentes (`<details>`) y formulario de contacto.
-4. **Vistas Móviles (360px - 400px):**
-   - Abre la herramienta de desarrollador (`F12` en Chrome/Edge o `Ctrl+Shift+M` para modo responsive).
-   - Captura el menú reorganizado, el catálogo en 1 sola columna y el formulario de suscripción.
-
----
-
-## 8. Checklist Final para Entrega del PDF
-
-- [x] Repositorio de GitHub creado y código subido.
-- [x] GitHub Pages activo con enlace público funcional.
-- [x] URL del repositorio y URL de GitHub Pages colocadas en la carátula del informe.
-- [x] Capturas de los 3 tipos de CSS (Externo, Interno, En línea).
-- [x] Capturas de los selectores clasificados por categoría con sus comentarios.
-- [x] Capturas de Flexbox y CSS Grid.
-- [x] Capturas de las 3 páginas en versión Escritorio y Móvil.
-- [x] Capturas de las validaciones W3C en verde para los 3 archivos HTML y el archivo CSS.
-- [x] Fecha de entrega: Hasta el **8 de noviembre de 2026**.
+   - Sección de lanzamientos + franja de editoriales + newsletter + footer.
+2. **Página en Tableta (768px–1023px):**
+   - Fila 1: Logo + Menú horizontal.
+   - Fila 2: Buscador a ancho completo.
+3. **Página en Móvil (<768px):**
+   - Fila 1: Logo + Botón hamburguesa (☰).
+   - Menú desplegado en vertical al tocar el botón ☰.
+   - Buscador a todo el ancho debajo.
+4. **Página de Catálogo (`catalogo.html`):**
+   - Aside lateral de filtros + cuadrícula de 12 tarjetas en `<article>`.
+5. **Página de Guía del Coleccionista (`pagina3.html`):**
+   - Glosario de demografías (`<dl>`), tabla comparativa, infografía de lectura (`<ol>` + `<figure>`), acordeón FAQ (`<details>`) y formulario de contacto.
