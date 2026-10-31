@@ -10,9 +10,7 @@
   <link rel="stylesheet" href="css/styles.css">
 
   <!-- ========================================================================
-       5.1 CSS INTERNO (ESTILOS EXCLUSIVOS DE ESTA PÁGINA)
-       Define cromatismo de etiquetas de catálogo (HOT, SALE, NUEVO, OMNIBUS),
-       barra de ordenamiento visual y panel de filtros laterales.
+        CSS INTERNO (ESTILOS EXCLUSIVOS DE ESTA PÁGINA)
        ======================================================================== -->
   <style>
     /* <!-- CSS INTERNO: Estilos específicos para catálogo, filtros y etiquetas --> */
@@ -122,7 +120,7 @@
 <body>
 
   <!-- ========================================================================
-       ENCABEZADO PRINCIPAL (HEADER + NAVBAR + BUSCADOR RESPONSIVO)
+       ENCABEZADO PRINCIPAL
        Semántica: <header>, <nav>
        ======================================================================== -->
   <header class="encabezado-principal" id="encabezado-principal">
@@ -165,7 +163,7 @@
   </div>
 
   <!-- ========================================================================
-       CONTENIDO PRINCIPAL (MAIN CON LAYOUT DE 2 COLUMNAS: ASIDE + SECTION)
+       CONTENIDO PRINCIPAL 
        Semántica: <main>, <aside>, <section>, <article>, <figure>, <figcaption>
        ======================================================================== -->
   <main class="contenedor">
@@ -200,10 +198,10 @@
           <h4>DEMOGRAFÍA</h4>
           <ul>
             <li style="margin-bottom: 6px;"><a href="catalogo.html" style="font-weight: bold; color: var(--color-primario);">▸ Todos los géneros (12)</a></li>
-            <li style="margin-bottom: 6px;"><a href="catalogo.html">Shonen (4)</a></li>
+            <li style="margin-bottom: 6px;"><a href="catalogo.html">Shōnen (8)</a></li>
             <li style="margin-bottom: 6px;"><a href="catalogo.html">Seinen (4)</a></li>
-            <li style="margin-bottom: 6px;"><a href="catalogo.html">Shojo (2)</a></li>
-            <li style="margin-bottom: 6px;"><a href="catalogo.html">Josei (2)</a></li>
+            <li style="margin-bottom: 6px;"><a href="catalogo.html">Acción y Aventura (7)</a></li>
+            <li style="margin-bottom: 6px;"><a href="catalogo.html">Comedia y Romance (3)</a></li>
           </ul>
         </div>
 
@@ -212,9 +210,8 @@
           <h4>FORMATO DE EDICIÓN</h4>
           <ul>
             <li style="margin-bottom: 6px;"><a href="pagina3.html#ediciones">Tankōbon estándar (7)</a></li>
-            <li style="margin-bottom: 6px;"><a href="pagina3.html#ediciones">Kanzenban coleccionista (2)</a></li>
-            <li style="margin-bottom: 6px;"><a href="pagina3.html#ediciones">Ómnibus 2 en 1 (2)</a></li>
-            <li style="margin-bottom: 6px;"><a href="pagina3.html#ediciones">Edición de Lujo cartoné (1)</a></li>
+            <li style="margin-bottom: 6px;"><a href="pagina3.html#ediciones">Kanzenban coleccionista (3)</a></li>
+            <li style="margin-bottom: 6px;"><a href="pagina3.html#ediciones">Edición Especial conmemorativa (2)</a></li>
           </ul>
         </div>
 
@@ -223,8 +220,8 @@
           <h4>RANGO DE PRECIO</h4>
           <ul>
             <li style="margin-bottom: 6px;">Menos de $12.00 (3 tomos)</li>
-            <li style="margin-bottom: 6px;">$12.00 a $16.00 (6 tomos)</li>
-            <li style="margin-bottom: 6px;">Más de $16.00 (3 tomos)</li>
+            <li style="margin-bottom: 6px;">$12.00 a $15.00 (6 tomos)</li>
+            <li style="margin-bottom: 6px;">Más de $15.00 (3 tomos)</li>
           </ul>
         </div>
 
@@ -241,7 +238,7 @@
       </aside>
 
       <!-- --------------------------------------------------------------------
-           SECTION PRINCIPAL: 12 TARJETAS MÍNIMO (EXCLUSIVAMENTE <ARTICLE>)
+           SECTION PRINCIPAL: 12 TARJETAS MÍNIMO 
            Semántica: <section>, <article>, <figure>, <figcaption>
            -------------------------------------------------------------------- -->
       <section aria-label="Listado de volúmenes de manga disponibles">
@@ -249,136 +246,44 @@
         <div class="cuadricula-catalogo">
 
           <!-- ==========================================
-               TARJETA 1 (Seinen)
+               TARJETA 1 (One Piece - Vol. 109 - Shonen)
                ========================================== -->
           <article class="tarjeta-manga">
             <figure>
-              <img src="img/manga-01.svg" alt="Portada del manga Cyberpunk Edge volumen 1 con tonos rojo y negro" width="400" height="600" loading="lazy">
+              <img src="img/one-piece-volumen109.jpg" alt="Portada oficial del manga One Piece volumen 109 con Luffy en Gear 5, Bartholomew Kuma, Bonney y Vegapunk" width="400" height="600" loading="lazy">
               <figcaption>
-                <span>VOL. 01</span>
-                <span>SEINEN</span>
-              </figcaption>
-            </figure>
-            <div style="padding-top: 12px; display: flex; flex-direction: column; flex-grow: 1;">
-              <span class="etiqueta-chip etiqueta-hot" style="width: fit-content;">HOT</span>
-              <h3>Cyberpunk Edge</h3>
-              <p class="autor-manga">Takeshi Kurosawa</p>
-              <p class="descripcion-manga">Un thriller cyberpunk de alta intensidad sobre rebeldes mecánicos en los bajos fondos de Tokio. Formato Tankōbon con páginas a color.</p>
-              <div class="pie-tarjeta-manga">
-                <span class="precio-manga">$14.99</span>
-                <a href="pagina3.html#ediciones" class="boton-accion">Ver más</a>
-              </div>
-            </div>
-          </article>
-
-          <!-- ==========================================
-               TARJETA 2 (Shonen)
-               ========================================== -->
-          <article class="tarjeta-manga">
-            <figure>
-              <img src="img/manga-02.svg" alt="Portada del manga Blade Soul volumen 12 con espada ancestral y luna de tinta" width="400" height="600" loading="lazy">
-              <figcaption>
-                <span>VOL. 12</span>
-                <span>SHONEN</span>
-              </figcaption>
-            </figure>
-            <div style="padding-top: 12px; display: flex; flex-direction: column; flex-grow: 1;">
-              <span class="etiqueta-chip etiqueta-sale" style="width: fit-content;">SALE</span>
-              <h3>Blade Soul</h3>
-              <p class="autor-manga">Yuki Matsuo</p>
-              <p class="descripcion-manga">La saga del espadachín errante que busca redención cortando las sombras demoníacas. Emocionante clímax del arco de Kioto en tomo individual.</p>
-              <div class="pie-tarjeta-manga">
-                <span class="precio-manga">$11.50</span>
-                <a href="pagina3.html#ediciones" class="boton-accion">Ver más</a>
-              </div>
-            </div>
-          </article>
-
-          <!-- ==========================================
-               TARJETA 3 (Seinen)
-               ========================================== -->
-          <article class="tarjeta-manga">
-            <figure>
-              <img src="img/manga-03.svg" alt="Portada del manga Neo Tokyo Ghost volumen 4 con diseño digital espectral" width="400" height="600" loading="lazy">
-              <figcaption>
-                <span>VOL. 04</span>
-                <span>SEINEN</span>
-              </figcaption>
-            </figure>
-            <div style="padding-top: 12px; display: flex; flex-direction: column; flex-grow: 1;">
-              <span class="etiqueta-chip etiqueta-nuevo" style="width: fit-content;">NUEVO</span>
-              <h3>Neo Tokyo Ghost</h3>
-              <p class="autor-manga">Shinji Hashimoto</p>
-              <p class="descripcion-manga">Intriga sobrenatural y tecnología en un cruce urbano laberíntico. Edición con papel ahuesado de alto gramaje para coleccionistas.</p>
-              <div class="pie-tarjeta-manga">
-                <span class="precio-manga">$15.99</span>
-                <a href="pagina3.html#ediciones" class="boton-accion">Ver más</a>
-              </div>
-            </div>
-          </article>
-
-          <!-- ==========================================
-               TARJETA 4 (Seinen - Ómnibus)
-               ========================================== -->
-          <article class="tarjeta-manga">
-            <figure>
-              <img src="img/manga-04.svg" alt="Portada del manga Blood and Steel tomo ómnibus recopilatorio con geometría pesada" width="400" height="600" loading="lazy">
-              <figcaption>
-                <span>OMNIBUS 1</span>
-                <span>SEINEN</span>
-              </figcaption>
-            </figure>
-            <div style="padding-top: 12px; display: flex; flex-direction: column; flex-grow: 1;">
-              <span class="etiqueta-chip etiqueta-omnibus" style="width: fit-content;">OMNIBUS</span>
-              <h3>Blood &amp; Steel</h3>
-              <p class="autor-manga">Ryo Ishikawa</p>
-              <p class="descripcion-manga">Edición integral 2 en 1 con lomo reforzado y más de 450 páginas de combate de robots titánicos y estrategia geopolítica visceral.</p>
-              <div class="pie-tarjeta-manga">
-                <span class="precio-manga">$24.00</span>
-                <a href="pagina3.html#ediciones" class="boton-accion">Ver más</a>
-              </div>
-            </div>
-          </article>
-
-          <!-- ==========================================
-               TARJETA 5 (Shonen)
-               ========================================== -->
-          <article class="tarjeta-manga">
-            <figure>
-              <img src="img/manga-05.svg" alt="Portada del manga Sombras de Kioto volumen 3 con portal sintoísta y luna roja" width="400" height="600" loading="lazy">
-              <figcaption>
-                <span>VOL. 03</span>
+                <span>VOL. 109</span>
                 <span>SHONEN</span>
               </figcaption>
             </figure>
             <div style="padding-top: 12px; display: flex; flex-direction: column; flex-grow: 1;">
               <span class="etiqueta-chip etiqueta-hot" style="width: fit-content;">HOT</span>
-              <h3>Sombras de Kioto</h3>
-              <p class="autor-manga">Haruto Morimoto</p>
-              <p class="descripcion-manga">Exorcistas modernos resguardan santuarios sagrados frente a espíritus corrompidos por la tecnología. Batallas dinámicas panel a panel.</p>
+              <h3>One Piece (Egghead)</h3>
+              <p class="autor-manga">Eiichiro Oda</p>
+              <p class="descripcion-manga">El asedio a Egghead alcanza su máxima intensidad. Conoce los dolorosos orígenes de Kuma y la épica resistencia de Luffy en Gear 5.</p>
               <div class="pie-tarjeta-manga">
-                <span class="precio-manga">$13.50</span>
+                <span class="precio-manga">$15.50</span>
                 <a href="pagina3.html#ediciones" class="boton-accion">Ver más</a>
               </div>
             </div>
           </article>
 
           <!-- ==========================================
-               TARJETA 6 (Shojo - Edición de Lujo)
+               TARJETA 2 (Frieren - Vol. 06 - Shonen)
                ========================================== -->
           <article class="tarjeta-manga">
             <figure>
-              <img src="img/manga-06.svg" alt="Portada del manga Vórtice Estelar volumen 2 con constelaciones orbitales" width="400" height="600" loading="lazy">
+              <img src="img/frieren-beyond-journey-s-end-volumen-6.jpg" alt="Portada oficial del manga Frieren Beyond Journey's End volumen 6 con Frieren, Fern y hechiceros" width="400" height="600" loading="lazy">
               <figcaption>
-                <span>VOL. 02</span>
-                <span>SHOJO</span>
+                <span>VOL. 06</span>
+                <span>SHONEN</span>
               </figcaption>
             </figure>
             <div style="padding-top: 12px; display: flex; flex-direction: column; flex-grow: 1;">
               <span class="etiqueta-chip etiqueta-nuevo" style="width: fit-content;">NUEVO</span>
-              <h3>Vórtice Estelar</h3>
-              <p class="autor-manga">Elena Fujiwara</p>
-              <p class="descripcion-manga">Un romance de ciencia ficción lírico en una estación espacial de investigación. Tapa dura cartoné con acabado metalizado en relieve.</p>
+              <h3>Frieren: Beyond Journey's End</h3>
+              <p class="autor-manga">Kanehito Yamada · Tsukasa Abe</p>
+              <p class="descripcion-manga">La maga elfa Frieren y su aprendiz Fern participan en la rigurosa prueba de Äußerst para obtener la certificación de primera clase.</p>
               <div class="pie-tarjeta-manga">
                 <span class="precio-manga">$16.50</span>
                 <a href="pagina3.html#ediciones" class="boton-accion">Ver más</a>
@@ -387,21 +292,67 @@
           </article>
 
           <!-- ==========================================
-               TARJETA 7 (Shonen)
+               TARJETA 3 (Chainsaw Man - Vol. 01 - Shonen)
                ========================================== -->
           <article class="tarjeta-manga">
             <figure>
-              <img src="img/manga-07.svg" alt="Portada del manga Alquimia Carmesí volumen 7 con círculos de transmutación alquímica" width="400" height="600" loading="lazy">
+              <img src="img/chainsaw_man_volumen1.jpg" alt="Portada oficial del manga Chainsaw Man volumen 1 con Denji transformado con motosierras en fondo naranja" width="400" height="600" loading="lazy">
               <figcaption>
-                <span>VOL. 07</span>
+                <span>VOL. 01</span>
                 <span>SHONEN</span>
               </figcaption>
             </figure>
             <div style="padding-top: 12px; display: flex; flex-direction: column; flex-grow: 1;">
-              <span class="etiqueta-chip etiqueta-sale" style="width: fit-content;">SALE</span>
-              <h3>Alquimia Carmesí</h3>
-              <p class="autor-manga">Daiki Takahashi</p>
-              <p class="descripcion-manga">Científicos alquimistas se rebelan contra la inquisición militar imperial. Sistema de poderes táctico y giros de guion impredecibles.</p>
+              <span class="etiqueta-chip etiqueta-hot" style="width: fit-content;">HOT</span>
+              <h3>Chainsaw Man</h3>
+              <p class="autor-manga">Tatsuki Fujimoto</p>
+              <p class="descripcion-manga">Denji, un joven que sobrevive cazando demonios junto a su leal demonio-perro Pochita, renace tras una traición como el temible Chainsaw Man.</p>
+              <div class="pie-tarjeta-manga">
+                <span class="precio-manga">$12.50</span>
+                <a href="pagina3.html#ediciones" class="boton-accion">Ver más</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- ==========================================
+               TARJETA 4 (Chainsaw Man - Vol. 22 - Shonen)
+               ========================================== -->
+          <article class="tarjeta-manga">
+            <figure>
+              <img src="img/chainsaw-man-volumen22.jpg" alt="Portada oficial del manga Chainsaw Man volumen 22 con Asa Mitaka y Yoru en uniforme escolar" width="400" height="600" loading="lazy">
+              <figcaption>
+                <span>VOL. 22</span>
+                <span>SHONEN</span>
+              </figcaption>
+            </figure>
+            <div style="padding-top: 12px; display: flex; flex-direction: column; flex-grow: 1;">
+              <span class="etiqueta-chip etiqueta-omnibus" style="width: fit-content;">ESPECIAL</span>
+              <h3>Chainsaw Man (Parte 2)</h3>
+              <p class="autor-manga">Tatsuki Fujimoto</p>
+              <p class="descripcion-manga">Segunda fase de la saga. La estudiante Asa Mitaka es poseída por el Demonio de la Guerra (Yoru), desatando un nuevo torbellino de sangre y humor negro.</p>
+              <div class="pie-tarjeta-manga">
+                <span class="precio-manga">$14.50</span>
+                <a href="pagina3.html#ediciones" class="boton-accion">Ver más</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- ==========================================
+               TARJETA 5 (Sakamoto Days - Vol. 01 - Shonen)
+               ========================================== -->
+          <article class="tarjeta-manga">
+            <figure>
+              <img src="img/sakamoto_days_volumen1.jpg" alt="Portada oficial del manga Sakamoto Days volumen 1 con Taro Sakamoto y Shin en su tienda" width="400" height="600" loading="lazy">
+              <figcaption>
+                <span>VOL. 01</span>
+                <span>SHONEN</span>
+              </figcaption>
+            </figure>
+            <div style="padding-top: 12px; display: flex; flex-direction: column; flex-grow: 1;">
+              <span class="etiqueta-chip etiqueta-hot" style="width: fit-content;">HOT</span>
+              <h3>Sakamoto Days</h3>
+              <p class="autor-manga">Yuto Suzuki</p>
+              <p class="descripcion-manga">El legendario asesino Taro Sakamoto abandonó el crimen para casarse y gestionar su tienda de barrio. ¡Ahora defiende su familia sin matar a nadie!</p>
               <div class="pie-tarjeta-manga">
                 <span class="precio-manga">$12.99</span>
                 <a href="pagina3.html#ediciones" class="boton-accion">Ver más</a>
@@ -410,21 +361,67 @@
           </article>
 
           <!-- ==========================================
-               TARJETA 8 (Josei - Kanzenban)
+               TARJETA 6 (Hunter x Hunter - Vol. 01 - Shonen)
                ========================================== -->
           <article class="tarjeta-manga">
             <figure>
-              <img src="img/manga-08.svg" alt="Portada del manga Corazón de Cuarzo volumen 1 con diseño minimalista de fractura kintsugi" width="400" height="600" loading="lazy">
+              <img src="img/hunter-x-hunter-volumen-1.jpg" alt="Portada oficial del manga Hunter x Hunter volumen 1 con Gon Freecss sobre una gran rana verde" width="400" height="600" loading="lazy">
               <figcaption>
                 <span>VOL. 01</span>
-                <span>JOSEI</span>
+                <span>SHONEN</span>
+              </figcaption>
+            </figure>
+            <div style="padding-top: 12px; display: flex; flex-direction: column; flex-grow: 1;">
+              <span class="etiqueta-chip etiqueta-sale" style="width: fit-content;">SALE</span>
+              <h3>Hunter x Hunter</h3>
+              <p class="autor-manga">Yoshihiro Togashi</p>
+              <p class="descripcion-manga">Gon Freecss emprende el viaje de su vida para superar el peligroso Examen de Cazador, descubrir secretos del mundo y encontrar a su padre Ging.</p>
+              <div class="pie-tarjeta-manga">
+                <span class="precio-manga">$11.50</span>
+                <a href="pagina3.html#ediciones" class="boton-accion">Ver más</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- ==========================================
+               TARJETA 7 (Naruto - Vol. 01 - Shonen)
+               ========================================== -->
+          <article class="tarjeta-manga">
+            <figure>
+              <img src="img/naruto-volumen-1.jpg" alt="Portada oficial del manga Naruto volumen 1 con Naruto Uzumaki comiendo un pergamino ninja" width="400" height="600" loading="lazy">
+              <figcaption>
+                <span>VOL. 01</span>
+                <span>SHONEN</span>
+              </figcaption>
+            </figure>
+            <div style="padding-top: 12px; display: flex; flex-direction: column; flex-grow: 1;">
+              <span class="etiqueta-chip etiqueta-sale" style="width: fit-content;">SALE</span>
+              <h3>Naruto</h3>
+              <p class="autor-manga">Masashi Kishimoto</p>
+              <p class="descripcion-manga">Marginado por albergar al Zorro de Nueve Colas en su interior, Naruto Uzumaki inicia su camino ninja jurando convertirse en el mayor Hokage de Konoha.</p>
+              <div class="pie-tarjeta-manga">
+                <span class="precio-manga">$11.00</span>
+                <a href="pagina3.html#ediciones" class="boton-accion">Ver más</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- ==========================================
+               TARJETA 8 (One-Punch Man - Vol. 30 - Seinen)
+               ========================================== -->
+          <article class="tarjeta-manga">
+            <figure>
+              <img src="img/one_punch_man_volumen30.jpg" alt="Portada oficial del manga One Punch Man volumen 30 con Silver Fang Bang y Garou frente a frente" width="400" height="600" loading="lazy">
+              <figcaption>
+                <span>VOL. 30</span>
+                <span>SEINEN</span>
               </figcaption>
             </figure>
             <div style="padding-top: 12px; display: flex; flex-direction: column; flex-grow: 1;">
               <span class="etiqueta-chip etiqueta-nuevo" style="width: fit-content;">NUEVO</span>
-              <h3>Corazón de Cuarzo</h3>
-              <p class="autor-manga">Aoi Tachibana</p>
-              <p class="descripcion-manga">La reconstrucción personal de una ceramista a través del arte de reparar con oro. Drama maduro, sensible y exquisitamente ilustrado.</p>
+              <h3>One-Punch Man (Vol. 30)</h3>
+              <p class="autor-manga">ONE · Yusuke Murata</p>
+              <p class="descripcion-manga">El combate maestro-discípulo entre Bang y Garou. Las artes marciales del puño de agua que fluye chocan en un despliegue gráfico sin igual.</p>
               <div class="pie-tarjeta-manga">
                 <span class="precio-manga">$14.25</span>
                 <a href="pagina3.html#ediciones" class="boton-accion">Ver más</a>
@@ -433,67 +430,67 @@
           </article>
 
           <!-- ==========================================
-               TARJETA 9 (Seinen - Ómnibus Coleccionista)
+               TARJETA 9 (One-Punch Man - Vol. 33 - Seinen)
                ========================================== -->
           <article class="tarjeta-manga">
             <figure>
-              <img src="img/manga-09.svg" alt="Portada del manga El Último Guardián con compendio de archivo y estética brutalista" width="400" height="600" loading="lazy">
+              <img src="img/one_punch_man_volumen33.jpg" alt="Portada oficial del manga One Punch Man volumen 33 con Saitama lanzando un puñetazo a gran velocidad" width="400" height="600" loading="lazy">
               <figcaption>
-                <span>OMNIBUS 1</span>
+                <span>VOL. 33</span>
                 <span>SEINEN</span>
               </figcaption>
             </figure>
             <div style="padding-top: 12px; display: flex; flex-direction: column; flex-grow: 1;">
-              <span class="etiqueta-chip etiqueta-omnibus" style="width: fit-content;">OMNIBUS</span>
-              <h3>El Último Guardián</h3>
-              <p class="autor-manga">Kenjiro Sato</p>
-              <p class="descripcion-manga">Tomo monumental de más de 500 páginas que recopila los primeros 3 arcos de la defensa de la biblioteca física frente al olvido digital.</p>
+              <span class="etiqueta-chip etiqueta-hot" style="width: fit-content;">HOT</span>
+              <h3>One-Punch Man (Vol. 33)</h3>
+              <p class="autor-manga">ONE · Yusuke Murata</p>
+              <p class="descripcion-manga">Saitama desata su poder a escala cósmica sosteniendo el núcleo de Genos. Una batalla interplanetaria que pulveriza todos los límites conocidos.</p>
               <div class="pie-tarjeta-manga">
-                <span class="precio-manga">$22.00</span>
+                <span class="precio-manga">$15.00</span>
                 <a href="pagina3.html#ediciones" class="boton-accion">Ver más</a>
               </div>
             </div>
           </article>
 
           <!-- ==========================================
-               TARJETA 10 (Josei)
+               TARJETA 10 (Los Diarios de la Boticaria - Vol. 14 - Seinen)
                ========================================== -->
           <article class="tarjeta-manga">
             <figure>
-              <img src="img/manga-10.svg" alt="Portada del manga Ecos de Shinjuku volumen 5 con perfil nocturno de rascacielos y faroles" width="400" height="600" loading="lazy">
+              <img src="img/the-apothecary-diaries-volumen14.jpg" alt="Portada oficial del manga Los diarios de la boticaria volumen 14 con Maomao en tonos verdes" width="400" height="600" loading="lazy">
               <figcaption>
-                <span>VOL. 05</span>
-                <span>JOSEI</span>
+                <span>VOL. 14</span>
+                <span>SEINEN</span>
               </figcaption>
             </figure>
             <div style="padding-top: 12px; display: flex; flex-direction: column; flex-grow: 1;">
-              <span class="etiqueta-chip etiqueta-hot" style="width: fit-content;">HOT</span>
-              <h3>Ecos de Shinjuku</h3>
-              <p class="autor-manga">Renzo Tanaka</p>
-              <p class="descripcion-manga">Vidas cruzadas en las madrugadas de Shinjuku: jazz, gastronomía de taberna izakaya y conexiones humanas inolvidables en Tokio.</p>
+              <span class="etiqueta-chip etiqueta-nuevo" style="width: fit-content;">NUEVO</span>
+              <h3>Los Diarios de la Boticaria</h3>
+              <p class="autor-manga">Natsu Hyuuga · Nekokurage</p>
+              <p class="descripcion-manga">Maomao utiliza sus profundos conocimientos en botánica y venenos para resolver enigmas en el harén imperial con ayuda del distinguido Jinshi.</p>
               <div class="pie-tarjeta-manga">
-                <span class="precio-manga">$13.99</span>
+                <span class="precio-manga">$15.99</span>
                 <a href="pagina3.html#ediciones" class="boton-accion">Ver más</a>
               </div>
             </div>
           </article>
 
           <!-- ==========================================
-               TARJETA 11 (Shonen)
+               TARJETA 11 (Don't Toy with Me, Miss Nagatoro - Vol. 20 - Shonen)
                ========================================== -->
           <article class="tarjeta-manga">
             <figure>
-              <img src="img/manga-11.svg" alt="Portada del manga Cazadores del Viento volumen 9 con planeador supersónico entre cañones" width="400" height="600" loading="lazy">
+              <img src="img/don-t-toy-with-me-miss-nagatoro-volumen20.jpg" alt="Portada oficial del manga Don't Toy with Me Miss Nagatoro volumen 20 con Nagatoro tomando la mano de Senpai" width="400" height="600" loading="lazy">
               <figcaption>
-                <span>VOL. 09</span>
+                <span>VOL. 20</span>
                 <span>SHONEN</span>
               </figcaption>
             </figure>
             <div style="padding-top: 12px; display: flex; flex-direction: column; flex-grow: 1;">
               <span class="etiqueta-chip etiqueta-sale" style="width: fit-content;">SALE</span>
-              <h3>Cazadores del Viento</h3>
-              <p class="autor-manga">Kazuki Endo</p>
-              <p class="descripcion-manga">Competiciones aéreas extremas en un archipiélago flotante. Aventura trepidante con viñetas panorámicas de increíble dinamismo.</p>
+              <h3>Don't Toy with Me, Miss Nagatoro</h3>
+              <p class="autor-manga">Nanashi</p>
+              <p class="descripcion-manga">Volumen conmemorativo. La pícara Nagatoro y su tímido Senpai culminan una historia de bromas, superación personal y amor juvenil.</p>
               <div class="pie-tarjeta-manga">
                 <span class="precio-manga">$11.99</span>
                 <a href="pagina3.html#ediciones" class="boton-accion">Ver más</a>
@@ -502,23 +499,23 @@
           </article>
 
           <!-- ==========================================
-               TARJETA 12 (Shojo - Edición de Lujo)
+               TARJETA 12 (Uzaki-chan Wants to Hang Out! - Vol. 13 - Seinen)
                ========================================== -->
           <article class="tarjeta-manga">
             <figure>
-              <img src="img/manga-12.svg" alt="Portada del manga Espada y Ceniza volumen 1 con emblema real y filigranas rojas" width="400" height="600" loading="lazy">
+              <img src="img/uzaki-chan-wants-to-hang-out-volumen-13.jpg" alt="Portada oficial del manga Uzaki-chan Wants to Hang Out volumen 13 con Hana Uzaki y su madre Tsuki" width="400" height="600" loading="lazy">
               <figcaption>
-                <span>VOL. 01</span>
-                <span>SHOJO</span>
+                <span>VOL. 13</span>
+                <span>SEINEN</span>
               </figcaption>
             </figure>
             <div style="padding-top: 12px; display: flex; flex-direction: column; flex-grow: 1;">
               <span class="etiqueta-chip etiqueta-nuevo" style="width: fit-content;">NUEVO</span>
-              <h3>Espada y Ceniza</h3>
-              <p class="autor-manga">Misaki Nomura</p>
-              <p class="descripcion-manga">Una joven estratega real asume el mando de un reino asediado. Conspiraciones palaciegas y elegancia gráfica en una edición encuadernada en hilo.</p>
+              <h3>Uzaki-chan Wants to Hang Out!</h3>
+              <p class="autor-manga">Take</p>
+              <p class="descripcion-manga">Hana Uzaki no da tregua a su solitario senpai Shinichi Sakurai. Divertida comedia romántica repleta de humor, amigos y dinámica familiar.</p>
               <div class="pie-tarjeta-manga">
-                <span class="precio-manga">$17.50</span>
+                <span class="precio-manga">$13.50</span>
                 <a href="pagina3.html#ediciones" class="boton-accion">Ver más</a>
               </div>
             </div>
@@ -580,7 +577,7 @@
           © 2026 MANGA VOID. Todos los derechos reservados. Proyecto universitario de Desarrollo de Aplicaciones Web.
         </p>
         <p>
-          <strong>Créditos de arte:</strong> Ilustraciones vectoriales originales SVG y tipografías licenciadas bajo Google Fonts (Anton, Hanken Grotesk, JetBrains Mono).
+          <strong>Créditos de arte:</strong> Portadas oficiales propiedad de sus respectivos autores y editoriales (Shueisha, Shogakukan, Kodansha, Square Enix, Kadokawa). Tipografías licenciadas bajo Google Fonts (Anton, Hanken Grotesk, JetBrains Mono).
         </p>
       </div>
 
