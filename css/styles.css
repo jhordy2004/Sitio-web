@@ -200,17 +200,6 @@ table {
   letter-spacing: 1px;
 }
 
-/* ========== SELECTOR: Id | Ejemplo: #encabezado-principal | Qué hace: Fija el encabezado en la parte superior con position: sticky, z-index: 100 y borde inferior sólido de 4px color tinta ========== */
-#encabezado-principal,
-.encabezado-principal {
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  width: 100%;
-  background-color: var(--color-papel);
-  border-bottom: 4px solid var(--color-tinta);
-  box-shadow: var(--sombra-dura);
-}
 
 /* ========== SELECTOR: Id | Ejemplo: #bloque-suscripcion | Qué hace: Aplica fondo oscuro inverso de alto impacto para la sección de boletín informativo ========== */
 #bloque-suscripcion {
@@ -479,230 +468,11 @@ a[href*="manga"] {
   font-weight: 700;
 }
 
-/* ==========================================================================
-   /* ===== TÉCNICA DE MAQUETACIÓN 1: FLEXBOX ===== */
-   Utilizado en: Encabezado/navegación (.encabezado__contenido, .menu, .buscador),
-   Hero layout, Footer, Barras de precios y Franja de editoriales.
-   ========================================================================== */
-
-/* ===== TÉCNICA DE MAQUETACIÓN: FLEXBOX (header) ===== */
-.encabezado__contenido {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  gap: 8px 16px;
-  max-width: 1440px;
-  margin: 0 auto;
-  padding: 12px 16px;
-}
-
-/* Identidad visual y logotipo en el encabezado */
-.logo {
-  order: 1;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-family: var(--fuente-titulos);
-  font-size: 1.65rem;
-  letter-spacing: 0.5px;
-  text-decoration: none;
-  color: var(--color-tinta);
-  user-select: none;
-}
-
-.logo:hover {
-  color: var(--color-tinta);
-}
-
-.logo__icono {
-  flex-shrink: 0;
-  display: block;
-}
-
-.logo__rojo {
-  color: var(--color-primario);
-}
-
-/* Checkbox oculto visualmente pero accesible por teclado mediante navegación por pestañas (Tab) */
-.menu-toggle {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border: 0;
-}
-
-/* ========== SELECTOR: Pseudoclase | Ejemplo: .menu-toggle:focus-visible | Qué hace: Mantiene accesible por teclado el interruptor oculto del menú móvil ========== */
-.menu-toggle:focus-visible {
-  clip: auto;
-  opacity: 0;
-}
-
-/* ========== SELECTOR: Hermano adyacente | Ejemplo: .menu-toggle:focus-visible + .menu-boton | Qué hace: Proporciona un indicador de foco visible al botón hamburguesa cuando se navega con teclado ========== */
-.menu-toggle:focus-visible + .menu-boton {
-  outline: 3px solid var(--color-primario);
-  outline-offset: 2px;
-}
-
-/* Botón hamburguesa móvil (☰) con orden 2 en móvil */
-.menu-boton {
-  order: 2;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 44px;
-  height: 44px;
-  font-size: 1.6rem;
-  line-height: 1;
-  color: var(--color-tinta);
-  background-color: var(--color-superficie);
-  border: 2px solid var(--color-tinta);
-  border-radius: var(--radio-boton);
-  box-shadow: var(--sombra-dura-pequena);
-  cursor: pointer;
-  user-select: none;
-  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
-}
-
-/* ========== SELECTOR: Pseudoclase | Ejemplo: .menu-boton:hover | Qué hace: Destaca el botón hamburguesa con fondo carmesí primario al pasar el cursor ========== */
-.menu-boton:hover {
-  background-color: var(--color-primario);
-  color: #ffffff;
-  border-color: var(--color-primario);
-}
-
-/* ========== SELECTOR: Pseudoclase | Ejemplo: .menu-toggle:checked | Qué hace: Aplica fondo carmesí primario al botón hamburguesa cuando el menú móvil está activo/abierto ========== */
-.menu-toggle:checked + .menu-boton {
-  background-color: var(--color-primario);
-  color: #ffffff;
-  border-color: var(--color-primario);
-}
-
-/* Contenedor del menú de navegación (en móvil oculto por defecto, con orden 3) */
-.menu {
-  order: 3;
-  width: 100%;
-  display: none;
-  background-color: var(--color-superficie);
-  border: 2px solid var(--color-tinta);
-  box-shadow: var(--sombra-dura);
-  margin-top: 4px;
-}
-
-/* ========== SELECTOR: Hermano general | Ejemplo: .menu-toggle:checked ~ .menu | Qué hace: Despliega el menú de navegación al marcarse el checkbox del botón hamburguesa sin JavaScript ========== */
-.menu-toggle:checked ~ .menu {
-  display: block;
-}
-
-/* ========== SELECTOR: Hijo directo | Ejemplo: .menu > ul | Qué hace: Aplica orientación en columna y espaciado vertical a la lista de navegación principal en móvil ========== */
-.menu > ul {
-  display: flex;
-  flex-direction: column;
-  list-style: none;
-  padding: 8px 0;
-  margin: 0;
-  gap: 4px;
-}
-
-.menu a {
-  display: block;
-  padding: 10px 14px;
-  font-family: var(--fuente-titulos);
-  font-size: 1.15rem;
-  letter-spacing: 0.5px;
-  text-decoration: none;
-  color: var(--color-tinta);
-  border-bottom: 3px solid transparent;
-  transition: color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
-}
-
-/* ========== SELECTOR: Pseudoclase | Ejemplo: .menu a:hover | Qué hace: Resalta el enlace de navegación con color primario carmesí al pasar el cursor ========== */
-.menu a:hover {
-  color: var(--color-primario);
-  background-color: var(--color-superficie-baja);
-}
-
-/* ========== SELECTOR: Atributo | Ejemplo: a[aria-current="page"] | Qué hace: Resalta el enlace de la página activa con color rojo primario y borde inferior de 3px ========== */
-a[aria-current="page"] {
-  color: var(--color-primario);
-  border-bottom: 3px solid var(--color-primario);
-  font-weight: 700;
-}
-
-/* Formulario de búsqueda accesible de altura uniforme 44px */
-.buscador {
-  order: 4;
-  width: 100%;
-  display: flex;
-  align-items: stretch;
-  height: 44px;
-  margin: 0;
-}
-
-/* ========== SELECTOR: Atributo | Ejemplo: input[type="search"] | Qué hace: Establece altura exacta de 44px, borde sólido de 2px, tipografía monoespaciada y evita desbordamientos con min-width: 0 ========== */
-.buscador input[type="search"] {
-  flex: 1;
-  min-width: 0;
-  height: 44px;
-  box-sizing: border-box;
-  padding: 0 12px;
-  font-family: var(--fuente-etiquetas);
-  font-size: 0.9rem;
-  background-color: var(--color-superficie);
-  color: var(--color-tinta);
-  border: 2px solid var(--color-tinta);
-  border-right: none;
-  border-radius: var(--radio-cero);
-}
-
-/* ========== SELECTOR: Pseudoclase | Ejemplo: .buscador input[type="search"]:focus | Qué hace: Cambia el borde a color rojo primario al enfocar el campo de búsqueda sin alterar la altura de 44px ========== */
-.buscador input[type="search"]:focus {
-  border-color: var(--color-primario);
-  outline: none;
-}
-
-.buscador button {
-  height: 44px;
-  box-sizing: border-box;
-  padding: 0 18px;
-  background-color: var(--color-tinta);
-  color: var(--color-papel);
-  border: 2px solid var(--color-tinta);
-  border-radius: var(--radio-cero);
-  font-family: var(--fuente-titulos);
-  font-size: 1rem;
-  letter-spacing: 1px;
-  cursor: pointer;
-  flex-shrink: 0;
-  text-shadow: none;
-  -webkit-text-stroke: 0;
-  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
-}
-
-/* ========== SELECTOR: Pseudoclase | Ejemplo: .buscador button:hover | Qué hace: Cambia el fondo del botón de búsqueda a rojo primario al pasar el cursor ========== */
-.buscador button:hover {
-  background-color: var(--color-primario);
-  border-color: var(--color-primario);
-  color: #ffffff;
-}
-
-/* Clase utilitaria para ocultar texto manteniendo accesibilidad total para lectores de pantalla */
-.solo-lectores {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border: 0;
-}
+/* ========================================================================== */
+/* ===== TÉCNICA DE MAQUETACIÓN 1: FLEXBOX ===== */
+/* Utilizado en: Hero layout, Footer, Barras de precios, Franja de editoriales
+   y en el bloque del Encabezado principal al final de esta hoja de estilos. */
+/* ========================================================================== */
 
 /* Hero con maquetación Flexbox */
 .bloque-hero {
@@ -880,11 +650,11 @@ a[aria-current="page"] {
   color: #d4ddd1;
 }
 
-/* ==========================================================================
-   /* ===== TÉCNICA DE MAQUETACIÓN 2: CSS GRID ===== */
-   Utilizado en: Cuadrícula del catálogo de productos (12 tarjetas), Bloque de
-   últimos lanzamientos, y Layout principal de Catálogo con Aside lateral.
-   ========================================================================== */
+/* ========================================================================== */
+/* ===== TÉCNICA DE MAQUETACIÓN 2: CSS GRID ===== */
+/* Utilizado en: Cuadrícula del catálogo de productos (12 tarjetas), Bloque de
+   últimos lanzamientos, y Layout principal de Catálogo con Aside lateral. */
+/* ========================================================================== */
 
 /* Bloque lanzamientos de inicio en CSS Grid */
 .cuadricula-lanzamientos {
@@ -1152,89 +922,10 @@ details.faq-item p {
   }
 }
 
-/* ==========================================================================
-   /* ===== MEDIA QUERY TABLETA (≥768px) ===== */
-   Fila 1: Logotipo + Menú de navegación horizontal.
-   Fila 2: Formulario de búsqueda ocupando todo el ancho.
-   ========================================================================== */
-@media (min-width: 768px) {
-  /* Ocultar botón hamburguesa y mostrar menú siempre visible en tableta */
-  .menu-toggle,
-  .menu-boton {
-    display: none;
-  }
-
-  .menu {
-    display: block;
-    order: 2;
-    flex: 1;
-    width: auto;
-    background-color: transparent;
-    border: none;
-    box-shadow: none;
-    margin-top: 0;
-  }
-
-  .menu > ul {
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    gap: 16px;
-    padding: 0;
-  }
-
-  .menu a {
-    padding: 8px 14px;
-    border-radius: var(--radio-boton);
-  }
-
-  .menu a:hover {
-    background-color: transparent;
-  }
-
-  /* Buscador en fila 2 ocupando todo el ancho */
-  .buscador {
-    order: 3;
-    width: 100%;
-  }
-}
-
-/* ==========================================================================
-   /* ===== MEDIA QUERY ESCRITORIO (≥1024px) ===== */
-   UNA sola fila: Logo a la izquierda, menú centrado y buscador a la derecha (300px).
-   Catálogo en 3 columnas según rúbrica universitaria.
-   ========================================================================== */
+/* --------------------------------------------------------------------------
+   ESCRITORIO: Ancho mínimo 1024px (Catálogo y Layouts generales)
+   -------------------------------------------------------------------------- */
 @media (min-width: 1024px) {
-  /* Encabezado en UNA sola fila sin salto de línea */
-  .encabezado__contenido {
-    flex-wrap: nowrap;
-    gap: 24px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-  }
-
-  .logo {
-    order: 1;
-    flex: 0 0 auto;
-  }
-
-  .menu {
-    order: 2;
-    flex: 1;
-    display: flex;
-    justify-content: center;
-  }
-
-  .menu > ul {
-    gap: 24px;
-  }
-
-  .buscador {
-    order: 3;
-    width: 300px;
-    flex: 0 0 300px;
-  }
-
   .contenedor {
     padding-left: var(--margen-escritorio);
     padding-right: var(--margen-escritorio);
@@ -1268,5 +959,302 @@ details.faq-item p {
   .footer-creditos {
     flex-direction: row;
     justify-content: space-between;
+  }
+}
+
+/* ==========================================================================
+   ENCABEZADO PRINCIPAL RESPONSIVO (HEADER + NAVBAR + BUSCADOR)
+   Mobile-First: Reglas base para pantallas pequeñas (< 900px)
+   ========================================================================== */
+
+/* ========== SELECTOR: Id | Ejemplo: #encabezado-principal | Qué hace: Fija el encabezado en la parte superior con position: sticky, z-index: 100, fondo papel y borde inferior sólido de 4px color tinta ========== */
+#encabezado-principal,
+.encabezado-principal {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  width: 100%;
+  background-color: var(--color-papel);
+  border-bottom: 4px solid var(--color-tinta);
+  box-shadow: var(--sombra-dura);
+}
+
+/* ===== TÉCNICA DE MAQUETACIÓN: FLEXBOX (header) ===== */
+.encabezado__contenido {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px 16px;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 12px 16px;
+}
+
+/* Logotipo */
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  font-family: var(--fuente-titulos);
+  font-size: 1.65rem;
+  letter-spacing: 0.5px;
+  color: var(--color-tinta);
+  user-select: none;
+}
+
+.logo:hover {
+  color: var(--color-tinta);
+}
+
+.logo__icono {
+  flex-shrink: 0;
+  display: block;
+}
+
+.logo__rojo {
+  color: var(--color-primario);
+}
+
+/* Interruptor accesible por teclado para desplegar el menú móvil */
+.menu-toggle {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* ========== SELECTOR: Pseudoclase | Ejemplo: .menu-toggle:focus-visible | Qué hace: Mantiene accesible por teclado el interruptor oculto del menú móvil ========== */
+.menu-toggle:focus-visible {
+  opacity: 0;
+}
+
+/* ========== SELECTOR: Hermano adyacente | Ejemplo: .menu-toggle:focus-visible + .menu-boton | Qué hace: Proporciona un indicador de foco visible al botón hamburguesa cuando se navega con teclado ========== */
+.menu-toggle:focus-visible + .menu-boton {
+  outline: 3px solid var(--color-primario);
+  outline-offset: 2px;
+}
+
+/* Botón hamburguesa (☰) visible en móvil (< 900px) */
+.menu-boton {
+  display: block;
+  border: 2px solid var(--color-tinta);
+  background-color: var(--color-superficie);
+  color: var(--color-tinta);
+  padding: 4px 12px;
+  font-size: 1.5rem;
+  line-height: 1;
+  cursor: pointer;
+  margin: 0;
+  user-select: none;
+  border-radius: var(--radio-boton);
+  box-shadow: var(--sombra-dura-pequena);
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+/* ========== SELECTOR: Pseudoclase | Ejemplo: .menu-boton:hover | Qué hace: Cambia el fondo a color primario al pasar el cursor sobre el botón hamburguesa ========== */
+.menu-boton:hover {
+  background-color: var(--color-primario);
+  color: #ffffff;
+  border-color: var(--color-primario);
+}
+
+/* ========== SELECTOR: Pseudoclase | Ejemplo: .menu-toggle:checked | Qué hace: Aplica fondo carmesí primario al botón hamburguesa cuando el menú móvil está activo/abierto ========== */
+.menu-toggle:checked + .menu-boton {
+  background-color: var(--color-primario);
+  color: #ffffff;
+  border-color: var(--color-primario);
+}
+
+/* Panel desplegable en móvil (oculto por defecto) */
+.encabezado__panel {
+  display: none;
+  flex-direction: column;
+  width: 100%;
+  gap: 12px;
+  padding-bottom: 12px;
+}
+
+/* ========== SELECTOR: Hermano general | Ejemplo: .menu-toggle:checked ~ .encabezado__panel | Qué hace: Despliega el panel del encabezado al marcarse el checkbox del botón hamburguesa sin JavaScript ========== */
+.menu-toggle:checked ~ .encabezado__panel {
+  display: flex;
+}
+
+/* Buscador dentro del panel (order 1 en móvil: aparece PRIMERO) */
+.buscador {
+  order: 1;
+  display: flex;
+  width: 100%;
+  margin: 0;
+}
+
+/* ========== SELECTOR: Atributo | Ejemplo: input[type="search"] | Qué hace: Establece altura exacta de 44px, borde sólido de 2px, tipografía monoespaciada y evita desbordamientos con min-width: 0 ========== */
+.buscador input[type="search"] {
+  flex: 1;
+  min-width: 0;
+  height: 44px;
+  box-sizing: border-box;
+  padding: 0 12px;
+  border: 2px solid var(--color-tinta);
+  border-radius: 0;
+  background-color: var(--color-superficie);
+  color: var(--color-tinta);
+  font-family: var(--fuente-etiquetas);
+  font-size: 0.9rem;
+}
+
+/* ========== SELECTOR: Pseudoclase | Ejemplo: .buscador input[type="search"]:focus | Qué hace: Cambia el borde a color rojo primario al enfocar el campo de búsqueda sin alterar la altura de 44px ========== */
+.buscador input[type="search"]:focus {
+  border-color: var(--color-primario);
+  outline: none;
+}
+
+.buscador button {
+  height: 44px;
+  box-sizing: border-box;
+  padding: 0 18px;
+  background-color: var(--color-tinta);
+  color: var(--color-papel);
+  border: 2px solid var(--color-tinta);
+  border-left: 0;
+  border-radius: 0;
+  text-shadow: none;
+  -webkit-text-stroke: 0;
+  cursor: pointer;
+  font-family: var(--fuente-titulos);
+  font-size: 1rem;
+  letter-spacing: 1px;
+  flex-shrink: 0;
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+/* ========== SELECTOR: Pseudoclase | Ejemplo: .buscador button:hover | Qué hace: Cambia el fondo del botón de búsqueda a rojo primario al pasar el cursor ========== */
+.buscador button:hover {
+  background-color: var(--color-primario);
+  border-color: var(--color-primario);
+  color: #ffffff;
+}
+
+/* Menú dentro del panel (order 2 en móvil: aparece ABAJO del buscador) */
+.menu {
+  order: 2;
+  width: 100%;
+}
+
+/* ========== SELECTOR: Hijo directo | Ejemplo: .menu > ul | Qué hace: Aplica orientación en columna, eliminación de viñetas y reseteo de márgenes a la lista de navegación ========== */
+.menu > ul {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.menu li {
+  border-bottom: 1px solid rgba(22, 29, 22, 0.15);
+}
+
+.menu li:last-child {
+  border-bottom: none;
+}
+
+.menu a {
+  display: block;
+  padding: 12px 8px;
+  border-bottom: 3px solid transparent;
+  font-family: var(--fuente-titulos);
+  font-size: 1.15rem;
+  letter-spacing: 0.5px;
+  color: var(--color-tinta);
+  text-decoration: none;
+  transition: color 0.2s ease, border-color 0.2s ease, background-color 0.2s ease;
+}
+
+/* ========== SELECTOR: Pseudoclase | Ejemplo: .menu a:hover | Qué hace: Resalta el enlace de navegación con color primario carmesí y borde inferior al pasar el cursor ========== */
+.menu a:hover {
+  color: var(--color-primario);
+  border-bottom-color: var(--color-primario);
+  background-color: var(--color-superficie-baja);
+}
+
+/* ========== SELECTOR: Atributo | Ejemplo: a[aria-current="page"] | Qué hace: Resalta el enlace de la página activa con color rojo primario y borde inferior de 3px ========== */
+a[aria-current="page"] {
+  color: var(--color-primario);
+  border-bottom-color: var(--color-primario);
+  font-weight: 700;
+}
+
+/* Clase utilitaria para ocultar texto manteniendo accesibilidad total para lectores de pantalla */
+.solo-lectores {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ========================================================================== */
+/* ===== MEDIA QUERY ESCRITORIO (≥ 900px) ===== */
+/* UNA sola línea horizontal: Logo a la izquierda, menú centrado y buscador a la derecha. */
+/* ========================================================================== */
+@media (min-width: 900px) {
+  .encabezado__contenido {
+    flex-wrap: nowrap;
+    gap: 24px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
+  .menu-boton {
+    display: none;
+  }
+
+  .encabezado__panel {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    flex: 1;
+    width: auto;
+    padding-bottom: 0;
+    gap: 24px;
+  }
+
+  .menu {
+    order: 1;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .menu > ul {
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .menu li {
+    border-bottom: none;
+  }
+
+  .menu a {
+    padding: 8px;
+    border-radius: var(--radio-boton);
+  }
+
+  .menu a:hover {
+    background-color: transparent;
+  }
+
+  .buscador {
+    order: 2;
+    width: 300px;
+    flex: 0 0 300px;
   }
 }

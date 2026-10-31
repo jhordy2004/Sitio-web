@@ -40,16 +40,16 @@ Todos los selectores tienen el encabezado destacado obligatorio:
 | **5c** | **Elemento + Clase** | Línea 239 | `a.boton-accion` | Enlace con apariencia de botón secundario. |
 | **6** | **Agrupación (coma)** | Línea 111 | `h1, h2, h3, h4` | Unifica la fuente Anton en titulares. |
 | **7** | **Combinador Descendiente** | Línea 253 | `nav a` | Enlaces contenidos dentro del nav. |
-| **7b** | **Combinador Hijo Directo (header)** | Línea 602 | `.menu > ul` | Aplica orientación en columna y espaciado vertical en el menú móvil. |
-| **7c** | **Combinador Hijo Directo (lista)** | Línea 262 | `ul.lista-beneficios > li` | Elementos `li` hijos directos de la lista. |
-| **7d** | **Combinador Hermano Adyacente (foco)**| Línea 546 | `.menu-toggle:focus-visible + .menu-boton` | Indicador de foco accesible al botón hamburguesa con teclado. |
-| **7e** | **Combinador Hermano Adyacente (texto)**| Línea 270 | `h2 + p.subtitulo-seccion` | Párrafo inmediatamente posterior a un h2. |
-| **7f** | **Combinador Hermano General (menú)** | Línea 597 | `.menu-toggle:checked ~ .menu` | Despliega el menú de navegación al marcarse el checkbox ☰ sin JS. |
-| **7g** | **Combinador Hermano General (texto)**| Línea 278 | `.contenido-articulo h2 ~ p` | Párrafos subsiguientes a un h2. |
-| **8** | **Pseudoclase :hover** | Líneas 572, 624, 687 | `.menu a:hover`, `.menu-boton:hover`, `.buscador button:hover` | Efectos hover destacados en menú, botón hamburguesa y búsqueda. |
-| **8b** | **Pseudoclase :focus** | Línea 663 | `.buscador input[type="search"]:focus` | Ilumina el borde del input a rojo primario sin variar los 44px de altura. |
-| **8c** | **Pseudoclase :focus-visible** | Línea 540 | `.menu-toggle:focus-visible` | Mantiene accesible por teclado el interruptor oculto del menú. |
-| **8d** | **Pseudoclase :checked** | Línea 579 | `.menu-toggle:checked + .menu-boton` | Activa fondo rojo en botón hamburguesa cuando el menú está abierto. |
+| **7b** | **Combinador Hijo Directo (header)** | Línea 1144 | `.menu > ul` | Aplica orientación en columna y espaciado vertical en el menú móvil. |
+| **7c** | **Combinador Hijo Directo (lista)** | Línea 251 | `ul.lista-beneficios > li` | Elementos `li` hijos directos de la lista. |
+| **7d** | **Combinador Hermano Adyacente (foco)**| Línea 1032 | `.menu-toggle:focus-visible + .menu-boton` | Indicador de foco accesible al botón hamburguesa con teclado. |
+| **7e** | **Combinador Hermano Adyacente (texto)**| Línea 259 | `h2 + p.subtitulo-seccion` | Párrafo inmediatamente posterior a un h2. |
+| **7f** | **Combinador Hermano General (menú)** | Línea 1078 | `.menu-toggle:checked ~ .encabezado__panel` | Despliega el panel del encabezado (buscador y menú) al marcarse el checkbox ☰ sin JS. |
+| **7g** | **Combinador Hermano General (texto)**| Línea 267 | `.contenido-articulo h2 ~ p` | Párrafos subsiguientes a un h2. |
+| **8** | **Pseudoclase :hover** | Líneas 1056, 1128, 1172 | `.menu a:hover`, `.menu-boton:hover`, `.buscador button:hover` | Efectos hover destacados en menú, botón hamburguesa y búsqueda. |
+| **8b** | **Pseudoclase :focus** | Línea 1106 | `.buscador input[type="search"]:focus` | Ilumina el borde del input a rojo primario sin variar los 44px de altura. |
+| **8c** | **Pseudoclase :focus-visible** | Línea 1027 | `.menu-toggle:focus-visible` | Mantiene accesible por teclado el interruptor oculto del menú. |
+| **8d** | **Pseudoclase :checked** | Línea 1062 | `.menu-toggle:checked + .menu-boton` | Activa fondo rojo en botón hamburguesa cuando el menú está abierto. |
 | **8e** | **Pseudoclase :active** | Línea 299 | `.boton-primario:active` | Efecto de botón presionado al hacer clic. |
 | **8f** | **Pseudoclase :link** | Línea 306 | `.enlace-destacado:link` | Enlaces aún no visitados. |
 | **8g** | **Pseudoclase :visited** | Línea 312 | `.enlace-destacado:visited` | Enlaces ya visitados. |
@@ -62,8 +62,8 @@ Todos los selectores tienen el encabezado destacado obligatorio:
 | **9d** | **Pseudoelemento ::first-line** | Línea 363 | `p.parrafo-destacado::first-line` | Primera línea estilizada en mayúsculas. |
 | **9e** | **Pseudoelemento ::marker** | Línea 370 | `ol.lista-pasos-lectura li::marker` | Números rojos estilizados en la lista de lectura. |
 | **9f** | **Pseudoelemento ::selection** | Línea 377 | `::selection` | Fondo carmesí al seleccionar texto. |
-| **10** | **Atributo [aria-current]** | Línea 630 | `a[aria-current="page"]` | Resalta el enlace activo en rojo con borde inferior de 3px. |
-| **10b** | **Atributo [type="search"]** | Línea 647 | `.buscador input[type="search"]` | Altura exacta de 44px, borde sólido y min-width: 0 anti-desbordamiento. |
+| **10** | **Atributo [aria-current]** | Línea 1180 | `a[aria-current="page"]` | Resalta el enlace activo en rojo con borde inferior de 3px. |
+| **10b** | **Atributo [type="search"]** | Línea 1091 | `.buscador input[type="search"]` | Altura exacta de 44px, borde sólido y min-width: 0 anti-desbordamiento. |
 | **10c** | **Atributo [target]** | Línea 383 | `a[target="_blank"]` | Cursor alias en enlaces externos. |
 | **10d** | **Atributo [type="text"]** | Línea 388 | `input[type="text"]` | Estilo uniforme para campos de texto. |
 | **10e** | **Atributo [type="email"]** | Línea 399 | `input[type="email"]` | Campo de correo con tipografía monoespaciada. |
@@ -93,10 +93,10 @@ Todos los selectores tienen el encabezado destacado obligatorio:
 ### Técnica 1: Flexbox
 - **Archivo:** `css/styles.css`
 - **Secciones comentadas:**
-  - `/* ===== TÉCNICA DE MAQUETACIÓN 1: FLEXBOX ===== */` (Línea 483)
-  - `/* ===== TÉCNICA DE MAQUETACIÓN: FLEXBOX (header) ===== */` (Línea 488)
+  - `/* ===== TÉCNICA DE MAQUETACIÓN 1: FLEXBOX ===== */` (Línea 472)
+  - `/* ===== TÉCNICA DE MAQUETACIÓN: FLEXBOX (header) ===== */` (Línea 982)
 - **Elementos donde se aplica:**
-  1. Header y navegación (.encabezado__contenido, .menu, .buscador, .logo).
+  1. Header y navegación (.encabezado__contenido, .encabezado__panel, .menu, .buscador, .logo).
   2. Hero layout (`.bloque-hero`, `.botones-hero`).
   3. Barra de precio y botón de compra de cada tarjeta (`.pie-tarjeta-manga`).
   4. Franja de editoriales y aliados internacionales (`.editoriales-lista`).
@@ -105,7 +105,7 @@ Todos los selectores tienen el encabezado destacado obligatorio:
 
 ### Técnica 2: CSS Grid
 - **Archivo:** `css/styles.css`
-- **Sección comentada:** `/* ===== TÉCNICA DE MAQUETACIÓN 2: CSS GRID ===== */` (Línea 884)
+- **Sección comentada:** `/* ===== TÉCNICA DE MAQUETACIÓN 2: CSS GRID ===== */` (Línea 654)
 - **Elementos donde se aplica:**
   1. Cuadrícula de 12 tarjetas en el catálogo (`.cuadricula-catalogo`).
   2. Cuadrícula de 4 tarjetas en inicio (`.cuadricula-lanzamientos`).
@@ -119,15 +119,16 @@ Todos los selectores tienen el encabezado destacado obligatorio:
   - Archivo: `css/styles.css` | Líneas: 22-65
   - Define más de 15 variables: colores carmesí, tinta, papel, fuentes Anton, Hanken Grotesk, JetBrains Mono, espaciado base 8px, sombras duras y radios.
 - **Media Queries para el Encabezado y Catálogo:**
-  - **Móvil (< 768px):** Reglas base por defecto. Logo a la izquierda (order 1), botón ☰ a la derecha (order 2), menú desplegable vertical (order 3), buscador en fila inferior ocupando el 100% (order 4).
-  - **Tableta (`/* ===== MEDIA QUERY TABLETA (≥768px) ===== */`):**
-    - Archivo: `css/styles.css` | Línea 1156
-    - Fila 1: Logo + menú horizontal centrado (botón ☰ oculto).
-    - Fila 2: Buscador ocupando todo el ancho inferior.
-  - **Escritorio (`/* ===== MEDIA QUERY ESCRITORIO (≥1024px) ===== */`):**
-    - Archivo: `css/styles.css` | Línea 1203
-    - UNA sola fila: Logo a la izquierda, menú centrado y buscador a la derecha (ancho 300px).
-    - Catálogo en 3 columnas según rúbrica universitaria.
+  - **Móvil (< 900px):** Reglas base por defecto (Líneas 982-1199). Barra superior con Logo a la izquierda y botón ☰ a la derecha (`justify-content: space-between`). Panel oculto por defecto que se despliega verticalmente al marcar el checkbox ☰ sin JS: buscador arriba (order 1) y enlaces abajo (order 2).
+  - **Catálogo Tableta (`@media (min-width: 600px)`):**
+    - Archivo: `css/styles.css` | Línea 892
+    - Cuadrícula del catálogo a 2 columnas.
+  - **Catálogo y Layout Escritorio (`@media (min-width: 1024px)`):**
+    - Archivo: `css/styles.css` | Línea 928
+    - Cuadrícula del catálogo a 3 columnas y layout en 2 columnas con aside lateral.
+  - **Encabezado Escritorio (`/* ===== MEDIA QUERY ESCRITORIO (≥ 900px) ===== */`):**
+    - Archivo: `css/styles.css` | Línea 1201
+    - UNA sola fila horizontal: Logo a la izquierda, menú centrado (`Inicio`, `Catálogo`, `Guía del Coleccionista`) y buscador a la derecha (ancho 300px), todo alineado verticalmente al centro. Botón ☰ oculto (`display: none`).
 
 ---
 
