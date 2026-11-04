@@ -1,10 +1,4 @@
-/* ==========================================================================
-   MANGA VOID — HOJA DE ESTILOS EXTERNA PRINCIPAL
-   Asignatura: Desarrollo de Aplicaciones Web | Universidad de Guayaquil
-   Docente: Mgtr. Karla Abad Sacoto | Estudiante: Marco Córdova Rivera
-   Estilo visual: Manga-Industrial (Alto contraste, screentones, sombras duras)
-   ========================================================================== */
-
+/*
 /* ===== CSS EXTERNO: Vinculado mediante <link rel="stylesheet" href="css/styles.css"> ===== */
 
 /* --------------------------------------------------------------------------
@@ -17,42 +11,41 @@
 
 /* ==========================================================================
    5.4 VARIABLES CSS (CUSTOM PROPERTIES EN :ROOT)
-   Definición de tokens de diseño siguiendo la paleta de DESIGN.md (Crimson Ink)
    ========================================================================== */
 :root {
   /* Tokens cromáticos primarios y de contraste */
-  --color-primario: #b7102a;             /* Carmesí de alta intensidad para llamadas a la acción */
-  --color-primario-oscuro: #92001c;      /* Tono carmesí oscuro para estados activos */
-  --color-primario-contenedor: #db313f;  /* Rojo secundario para contenedores de énfasis */
-  --color-tinta: #161d16;                /* Negro profundo tinta china para textos y bordes estructurales */
-  --color-papel: #f3fcf0;                /* Blanco papel suave para reducir fatiga visual */
-  --color-superficie: #ffffff;           /* Blanco puro de fondo para tarjetas y contenedores */
-  --color-superficie-baja: #edf6ea;      /* Superficie con leve tinte para secciones alternas */
-  --color-superficie-media: #e7f0e5;     /* Superficie intermedia para franja de editoriales */
-  --color-superficie-alta: #e2ebdf;      /* Superficie para bordes y fondos de badges */
-  --color-superficie-inversa: #2a322b;   /* Superficie oscura para footer y newsletter */
-  --color-texto-inverso: #eaf3e7;        /* Texto claro sobre fondos oscuros */
-  --color-texto-secundario: #5b403f;     /* Tono sepia/marrón para autores y subtítulos */
-  --color-borde: #161d16;                /* Color del borde sólido de 2px */
-  --color-borde-variante: #e4bebc;       /* Borde suave de acento */
-  --color-secundario: #485f84;           /* Azul acero para etiquetas SALE y notas secundarias */
-  --color-terciario: #286182;            /* Azul petróleo para etiquetas NUEVO y categorías */
+  --color-primario: #b7102a;             
+  --color-primario-oscuro: #92001c;      
+  --color-primario-contenedor: #db313f;  
+  --color-tinta: #161d16;                
+  --color-papel: #f3fcf0;                
+  --color-superficie: #ffffff;           
+  --color-superficie-baja: #edf6ea;      
+  --color-superficie-media: #e7f0e5;     
+  --color-superficie-alta: #e2ebdf;      
+  --color-superficie-inversa: #2a322b;   
+  --color-texto-inverso: #eaf3e7;        
+  --color-texto-secundario: #5b403f;     
+  --color-borde: #161d16;                
+  --color-borde-variante: #e4bebc;       
+  --color-secundario: #485f84;           
+  --color-terciario: #286182;            
 
-  /* Familias tipográficas con fuentes de respaldo (fallbacks) */
+  /* Familias tipográficas con fuentes de respaldo  */
   --fuente-titulos: 'Anton', Impact, 'Arial Black', sans-serif;
   --fuente-texto: 'Hanken Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --fuente-etiquetas: 'JetBrains Mono', 'Courier New', Courier, monospace;
 
-  /* Sistema métrico y espaciado proporcional (Base 8px) */
-  --espacio-base: 8px;                   /* Unidad atómica base de 8px */
-  --espacio-pequeno: 12px;               /* 1.5x unidad base */
-  --espacio-medio: 16px;                 /* 2x unidad base */
-  --espacio-grande: 24px;                /* 3x unidad base (gutter) */
-  --espacio-seccion: 48px;               /* Espacio vertical entre bloques */
-  --espacio-seccion-lg: 64px;            /* Espaciado amplio en escritorio */
-  --margen-movil: 16px;                  /* Márgenes laterales en pantallas pequeñas */
-  --margen-escritorio: 64px;             /* Márgenes laterales en pantallas grandes */
-  --ancho-maximo: 1320px;                /* Contenedor central máximo */
+  /* Sistema métrico y espaciado proporcional  */
+  --espacio-base: 8px;                   
+  --espacio-pequeno: 12px;               
+  --espacio-medio: 16px;                 
+  --espacio-grande: 24px;                
+  --espacio-seccion: 48px;               
+  --espacio-seccion-lg: 64px;            
+  --margen-movil: 16px;                  
+  --margen-escritorio: 64px;             
+  --ancho-maximo: 1320px;                
 
   /* Estética Manga-Industrial: Sombras duras sin desenfoque */
   --sombra-dura: 4px 4px 0 var(--color-tinta);
@@ -65,24 +58,13 @@
   --radio-boton: 4px;
 }
 
-/* ==========================================================================
-   5.2 EXPLICACIÓN DE ESPECIFICIDAD EN CSS
-   --------------------------------------------------------------------------
-   La especificidad es el peso numérico que determina qué regla CSS gana ante un
-   conflicto de estilos. Se calcula como una tupla (Estilos en línea, IDs, Clases/Atributos/Pseudoclases, Elementos/Pseudoelementos).
-
-   Ejemplo de conflicto resuelto en este proyecto:
-   Regla A: article.tarjeta-manga p.descripcion-manga (Peso: 0-0-2-2)
-   Regla B: .tarjeta-manga p (Peso: 0-0-1-1)
-   Resultado: La Regla A prevalece sobre la Regla B porque tiene 2 clases y 2 elementos (0,0,2,2 > 0,0,1,1).
-   Evitamos por completo el uso de !important, resolviendo conflictos con selectores estructurados.
-   ========================================================================== */
+/* 
 
 /* ==========================================================================
    5.2 DEMOSTRACIÓN COMPLETA DE SELECTORES CSS (CON COMENTARIOS REQUERIDOS)
    ========================================================================== */
 
-/* ========== SELECTOR: Universal | Ejemplo: * | Qué hace: Aplica box-sizing: border-box y elimina márgenes y rellenos por defecto en todos los elementos del DOM ========== */
+/* ========== SELECTOR: Universal | Ejemplo: *  ========== */
 *,
 *::before,
 *::after {
@@ -91,7 +73,7 @@
   padding: 0;
 }
 
-/* ========== SELECTOR: Elemento | Ejemplo: body | Qué hace: Establece tipografía base, color de texto principal y fondo con screentone a nivel de documento ========== */
+/* ========== SELECTOR: Elemento | Ejemplo: body  ========== */
 body {
   font-family: var(--fuente-texto);
   font-size: 16px;
@@ -108,7 +90,7 @@ body {
   overflow-x: hidden;
 }
 
-/* ========== SELECTOR: Agrupación (coma) | Ejemplo: h1, h2, h3 | Qué hace: Asigna de forma unificada la tipografía Anton de estilo titular manga y transformación a mayúsculas ========== */
+/* ========== SELECTOR: Agrupación  | Ejemplo: h1, h2, h3  ========== */
 h1, h2, h3, h4 {
   font-family: var(--fuente-titulos);
   text-transform: uppercase;
@@ -117,49 +99,49 @@ h1, h2, h3, h4 {
   color: var(--color-tinta);
 }
 
-/* ========== SELECTOR: Elemento | Ejemplo: h1 | Qué hace: Define el tamaño máximo de jerarquía para el título principal único de cada página ========== */
+/* ========== SELECTOR: Elemento | Ejemplo: h1  ========== */
 h1 {
   font-size: clamp(2rem, 5vw, 3.5rem);
   margin-bottom: var(--espacio-medio);
 }
 
-/* ========== SELECTOR: Elemento | Ejemplo: h2 | Qué hace: Establece el tamaño de encabezado de segundo nivel para las secciones temáticas ========== */
+/* ========== SELECTOR: Elemento | Ejemplo: h2  ========== */
 h2 {
   font-size: clamp(1.6rem, 3.5vw, 2.4rem);
   margin-bottom: var(--espacio-pequeno);
 }
 
-/* ========== SELECTOR: Elemento | Ejemplo: h3 | Qué hace: Establece el tamaño de los títulos de cada volumen de manga y tarjetas ========== */
+/* ========== SELECTOR: Elemento | Ejemplo: h3  ========== */
 h3 {
   font-size: 1.35rem;
   margin-bottom: 4px;
 }
 
-/* ========== SELECTOR: Elemento | Ejemplo: p | Qué hace: Define espaciado inferior y consistencia de lectura para los párrafos descriptivos ========== */
+/* ========== SELECTOR: Elemento | Ejemplo: p  ========== */
 p {
   margin-bottom: var(--espacio-pequeno);
 }
 
-/* ========== SELECTOR: Elemento | Ejemplo: a | Qué hace: Quita el subrayado predeterminado y hereda el color base con transición suave para enlaces ========== */
+/* ========== SELECTOR: Elemento | Ejemplo: a  ========== */
 a {
   color: inherit;
   text-decoration: none;
   transition: color 0.2s ease, background-color 0.2s ease, transform 0.2s ease;
 }
 
-/* ========== SELECTOR: Elemento | Ejemplo: img | Qué hace: Garantiza imágenes adaptables que respetan el contenedor sin desbordarse ========== */
+/* ========== SELECTOR: Elemento | Ejemplo: img  ========== */
 img {
   max-width: 100%;
   height: auto;
   display: block;
 }
 
-/* ========== SELECTOR: Elemento | Ejemplo: ul | Qué hace: Quita viñetas estándar para permitir listas personalizadas estilo manga ========== */
+/* ========== SELECTOR: Elemento | Ejemplo: ul  ========== */
 ul {
   list-style: none;
 }
 
-/* ========== SELECTOR: Elemento | Ejemplo: table | Qué hace: Colapsa los bordes de la tabla y ocupa el ancho completo disponible ========== */
+/* ========== SELECTOR: Elemento | Ejemplo: table  ========== */
 table {
   width: 100%;
   border-collapse: collapse;
@@ -170,7 +152,7 @@ table {
   box-shadow: var(--sombra-dura);
 }
 
-/* ========== SELECTOR: Clase | Ejemplo: .tarjeta-manga | Qué hace: Aplica estilo de panel manga con borde de 2px, esquinas a 0px y sombra dura sin desenfoque ========== */
+/* ========== SELECTOR: Clase | Ejemplo: .tarjeta-manga  ========== */
 .tarjeta-manga {
   background-color: var(--color-superficie);
   border: 2px solid var(--color-borde);
@@ -183,7 +165,7 @@ table {
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-/* ========== SELECTOR: Clase | Ejemplo: .boton-primario | Qué hace: Aplica botón rojo de compra con sombra dura y esquinas de 4px táctiles ========== */
+/* ========== SELECTOR: Clase | Ejemplo: .boton-primario  ========== */
 .boton-primario {
   background-color: var(--color-primario);
   color: #ffffff;
@@ -201,7 +183,7 @@ table {
 }
 
 
-/* ========== SELECTOR: Id | Ejemplo: #bloque-suscripcion | Qué hace: Aplica fondo oscuro inverso de alto impacto para la sección de boletín informativo ========== */
+/* ========== SELECTOR: Id | Ejemplo: #bloque-suscripcion  ========== */
 #bloque-suscripcion {
   background-color: var(--color-tinta);
   color: var(--color-texto-inverso);
@@ -211,12 +193,12 @@ table {
   position: relative;
 }
 
-/* ========== SELECTOR: Elemento + clase | Ejemplo: article.tarjeta-manga | Qué hace: Aumenta especificidad para asegurar que las tarjetas artículo manejen altura completa ========== */
+/* ========== SELECTOR: Elemento + clase | Ejemplo: article.tarjeta-manga  ========== */
 article.tarjeta-manga {
   height: 100%;
 }
 
-/* ========== SELECTOR: Elemento + clase | Ejemplo: p.descripcion-manga | Qué hace: Limita la altura y estiliza el extracto del manga con tipografía Hanken Grotesk ========== */
+/* ========== SELECTOR: Elemento + clase | Ejemplo: p.descripcion-manga  ========== */
 p.descripcion-manga {
   color: var(--color-texto-secundario);
   font-size: 0.92rem;
@@ -225,7 +207,7 @@ p.descripcion-manga {
   margin-bottom: var(--espacio-medio);
 }
 
-/* ========== SELECTOR: Elemento + clase | Ejemplo: a.boton-accion | Qué hace: Estiliza enlaces para que luzcan y se comporten como botones secundarios ========== */
+/* ========== SELECTOR: Elemento + clase | Ejemplo: a.boton-accion  ========== */
 a.boton-accion {
   background-color: var(--color-tinta);
   color: var(--color-papel);
@@ -239,7 +221,7 @@ a.boton-accion {
   display: inline-block;
 }
 
-/* ========== SELECTOR: Combinador descendiente | Ejemplo: nav a | Qué hace: Estiliza todos los enlaces que se encuentren dentro de cualquier barra de navegación ========== */
+/* ========== SELECTOR: Combinador descendiente | Ejemplo: nav a  ========== */
 nav a {
   font-family: var(--fuente-titulos);
   font-size: 1.15rem;
@@ -248,7 +230,7 @@ nav a {
   border-bottom: 3px solid transparent;
 }
 
-/* ========== SELECTOR: Combinador hijo directo | Ejemplo: ul > li | Qué hace: Selecciona únicamente los elementos de lista que sean hijos directos de un elemento ul ========== */
+/* ========== SELECTOR: Combinador hijo directo | Ejemplo: ul > li  ========== */
 ul.lista-beneficios > li {
   position: relative;
   padding-left: 32px;
@@ -256,7 +238,7 @@ ul.lista-beneficios > li {
   font-size: 1.05rem;
 }
 
-/* ========== SELECTOR: Combinador hermano adyacente | Ejemplo: h2 + p | Qué hace: Estiliza el primer párrafo inmediatamente posterior a un encabezado h2 como bajada o subtítulo ========== */
+/* ========== SELECTOR: Combinador hermano adyacente | Ejemplo: h2 + p  ========== */
 h2 + p.subtitulo-seccion {
   font-size: 1.15rem;
   color: var(--color-texto-secundario);
@@ -264,13 +246,13 @@ h2 + p.subtitulo-seccion {
   margin-bottom: var(--espacio-grande);
 }
 
-/* ========== SELECTOR: Combinador hermano general | Ejemplo: h2 ~ p | Qué hace: Da estilo de lectura amplio a todos los párrafos que sucedan a un h2 dentro del mismo bloque ========== */
+/* ========== SELECTOR: Combinador hermano general | Ejemplo: h2 ~ p  ========== */
 .contenido-articulo h2 ~ p {
   color: var(--color-tinta);
   line-height: 1.7;
 }
 
-/* ========== SELECTOR: Pseudoclase | Ejemplo: :hover | Qué hace: Desplaza la tarjeta 4px arriba-izquierda en hover creando el efecto de relieve pop ========== */
+/* ========== SELECTOR: Pseudoclase | Ejemplo: :hover  ========== */
 .tarjeta-manga:hover {
   transform: translate(-4px, -4px);
   box-shadow: var(--sombra-dura-grande);
@@ -285,40 +267,40 @@ select:focus {
   box-shadow: 0 0 0 3px rgba(183, 16, 42, 0.25);
 }
 
-/* ========== SELECTOR: Pseudoclase | Ejemplo: :active | Qué hace: Presiona el botón devolviéndolo a su posición base cuando el usuario hace clic ========== */
+/* ========== SELECTOR: Pseudoclase | Ejemplo: :active  ========== */
 .boton-primario:active,
 a.boton-accion:active {
   transform: translate(2px, 2px);
   box-shadow: var(--sombra-dura-pequena);
 }
 
-/* ========== SELECTOR: Pseudoclase | Ejemplo: :link | Qué hace: Estiliza los hipervínculos no visitados asegurando color primario distinguible ========== */
+/* ========== SELECTOR: Pseudoclase | Ejemplo: :link  ========== */
 .enlace-destacado:link {
   color: var(--color-primario);
   text-decoration: underline;
 }
 
-/* ========== SELECTOR: Pseudoclase | Ejemplo: :visited | Qué hace: Indica enlaces ya visitados con tonalidad secundaria sin romper la armonía visual ========== */
+/* ========== SELECTOR: Pseudoclase | Ejemplo: :visited  ========== */
 .enlace-destacado:visited {
   color: var(--color-secundario);
 }
 
-/* ========== SELECTOR: Pseudoclase | Ejemplo: :first-child | Qué hace: Aplica un borde rojo superior al primer elemento de una lista de detalles ========== */
+/* ========== SELECTOR: Pseudoclase | Ejemplo: :first-child  ========== */
 ul.lista-beneficios > li:first-child {
   font-weight: 700;
 }
 
-/* ========== SELECTOR: Pseudoclase | Ejemplo: :last-child | Qué hace: Remueve el margen inferior en el último elemento dentro de una columna o contenedor ========== */
+/* ========== SELECTOR: Pseudoclase | Ejemplo: :last-child  ========== */
 .columna-informacion > p:last-child {
   margin-bottom: 0;
 }
 
-/* ========== SELECTOR: Pseudoclase | Ejemplo: :nth-child(2n) | Qué hace: Alterna el color de fondo en las filas pares de la tabla comparativa de ediciones ========== */
+/* ========== SELECTOR: Pseudoclase | Ejemplo: :nth-child(2n)  ========== */
 table tbody tr:nth-child(2n) {
   background-color: var(--color-superficie-baja);
 }
 
-/* ========== SELECTOR: Pseudoelemento | Ejemplo: ::before | Qué hace: Inserta el ícono cuadrado rojo característico del estilo manga antes de los ítems de lista ========== */
+/* ========== SELECTOR: Pseudoelemento | Ejemplo: ::before  ========== */
 ul.lista-beneficios > li::before {
   content: "■";
   color: var(--color-primario);
@@ -328,7 +310,7 @@ ul.lista-beneficios > li::before {
   top: 0;
 }
 
-/* ========== SELECTOR: Pseudoelemento | Ejemplo: ::after | Qué hace: Agrega una flecha decorativa al final de los enlaces de tipo 'Ver catálogo completo' ========== */
+/* ========== SELECTOR: Pseudoelemento | Ejemplo: ::after  ========== */
 a.enlace-con-flecha::after {
   content: " →";
   font-weight: bold;
@@ -339,7 +321,7 @@ a.enlace-con-flecha:hover::after {
   transform: translateX(4px);
 }
 
-/* ========== SELECTOR: Pseudoelemento | Ejemplo: ::first-letter | Qué hace: Aplica estilo capitular agrandado a la primera letra del primer párrafo de la guía ========== */
+/* ========== SELECTOR: Pseudoelemento | Ejemplo: ::first-letter  ========== */
 p.parrafo-capitular::first-letter {
   font-family: var(--fuente-titulos);
   font-size: 3.2rem;
@@ -349,32 +331,32 @@ p.parrafo-capitular::first-letter {
   color: var(--color-primario);
 }
 
-/* ========== SELECTOR: Pseudoelemento | Ejemplo: ::first-line | Qué hace: Resalta en negrita y mayúsculas la primera línea de la introducción de coleccionistas ========== */
+/* ========== SELECTOR: Pseudoelemento | Ejemplo: ::first-line  ========== */
 p.parrafo-destacado::first-line {
   font-family: var(--fuente-titulos);
   letter-spacing: 1px;
   color: var(--color-primario);
 }
 
-/* ========== SELECTOR: Pseudoelemento | Ejemplo: ::marker | Qué hace: Colorea los números de las listas ordenadas <ol> con el rojo primario de la tienda ========== */
+/* ========== SELECTOR: Pseudoelemento | Ejemplo: ::marker  ========== */
 ol.lista-pasos-lectura li::marker {
   color: var(--color-primario);
   font-family: var(--fuente-titulos);
   font-size: 1.25rem;
 }
 
-/* ========== SELECTOR: Pseudoelemento | Ejemplo: ::selection | Qué hace: Personaliza la selección de texto con fondo carmesí y texto blanco puro ========== */
+/* ========== SELECTOR: Pseudoelemento | Ejemplo: ::selection  ========== */
 ::selection {
   background-color: var(--color-primario);
   color: #ffffff;
 }
 
-/* ========== SELECTOR: Atributo | Ejemplo: a[target] | Qué hace: Agrega estilo cursor externo a enlaces que abren una pestaña nueva ========== */
+/* ========== SELECTOR: Atributo | Ejemplo: a[target]  ========== */
 a[target="_blank"] {
   cursor: alias;
 }
 
-/* ========== SELECTOR: Atributo | Ejemplo: input[type="text"] | Qué hace: Establece ancho, tipografía monoespaciada y bordes duros a campos de texto ========== */
+/* ========== SELECTOR: Atributo | Ejemplo: input[type="text"]  ========== */
 input[type="text"],
 input[type="search"] {
   font-family: var(--fuente-etiquetas);
@@ -385,7 +367,7 @@ input[type="search"] {
   border-radius: var(--radio-cero);
 }
 
-/* ========== SELECTOR: Atributo | Ejemplo: input[type="email"] | Qué hace: Diseña el campo de suscripción con tipografía clara y sin esquinas redondeadas ========== */
+/* ========== SELECTOR: Atributo | Ejemplo: input[type="email"]  ========== */
 input[type="email"] {
   font-family: var(--fuente-etiquetas);
   font-size: 0.95rem;
@@ -395,22 +377,22 @@ input[type="email"] {
   border-radius: var(--radio-cero);
 }
 
-/* ========== SELECTOR: Atributo | Ejemplo: a[href^="https"] | Qué hace: Identifica enlaces externos seguros que inician con protocolo https:// ========== */
+/* ========== SELECTOR: Atributo | Ejemplo: a[href^="https"]  ========== */
 a[href^="https"] {
   font-weight: 600;
 }
 
-/* ========== SELECTOR: Atributo | Ejemplo: a[href$=".html"] | Qué hace: Aplica transición de navegación a todos los enlaces internos que terminan en extensión .html ========== */
+/* ========== SELECTOR: Atributo | Ejemplo: a[href$=".html"]  ========== */
 a[href$=".html"] {
   position: relative;
 }
 
-/* ========== SELECTOR: Atributo | Ejemplo: a[href*="manga"] | Qué hace: Detecta cualquier enlace que contenga la palabra clave 'manga' en su ruta ========== */
+/* ========== SELECTOR: Atributo | Ejemplo: a[href*="manga"]  ========== */
 a[href*="manga"] {
   letter-spacing: 0.2px;
 }
 
-/* ========== SELECTOR: Atributo | Ejemplo: [class*="etiqueta"] | Qué hace: Selecciona cualquier elemento que contenga la subcadena 'etiqueta' en su atributo class ========== */
+/* ========== SELECTOR: Atributo | Ejemplo: [class*="etiqueta"]  ========== */
 [class*="etiqueta"] {
   font-family: var(--fuente-etiquetas);
   font-size: 0.75rem;
@@ -419,7 +401,7 @@ a[href*="manga"] {
   letter-spacing: 1px;
 }
 
-/* ========== SELECTOR: Atributo | Ejemplo: [class="boton-primario"] | Qué hace: Selección exacta por valor del atributo class para el botón primario de compra ========== */
+/* ========== SELECTOR: Atributo | Ejemplo: [class="boton-primario"]  ========== */
 [class="boton-primario"] {
   font-weight: normal;
 }
@@ -967,7 +949,7 @@ details.faq-item p {
    Mobile-First: Reglas base para pantallas pequeñas (< 900px)
    ========================================================================== */
 
-/* ========== SELECTOR: Id | Ejemplo: #encabezado-principal | Qué hace: Fija el encabezado en la parte superior con position: sticky, z-index: 100, fondo papel y borde inferior sólido de 4px color tinta ========== */
+/* ========== SELECTOR: Id | Ejemplo: #encabezado-principal  ========== */
 #encabezado-principal,
 .encabezado-principal {
   position: sticky;
@@ -1024,12 +1006,12 @@ details.faq-item p {
   pointer-events: none;
 }
 
-/* ========== SELECTOR: Pseudoclase | Ejemplo: .menu-toggle:focus-visible | Qué hace: Mantiene accesible por teclado el interruptor oculto del menú móvil ========== */
+/* ========== SELECTOR: Pseudoclase | Ejemplo: .menu-toggle:focus-visible    ========== */
 .menu-toggle:focus-visible {
   opacity: 0;
 }
 
-/* ========== SELECTOR: Hermano adyacente | Ejemplo: .menu-toggle:focus-visible + .menu-boton | Qué hace: Proporciona un indicador de foco visible al botón hamburguesa cuando se navega con teclado ========== */
+/* ========== SELECTOR: Hermano adyacente | Ejemplo: .menu-toggle:focus-visible + .menu-boton  ========== */
 .menu-toggle:focus-visible + .menu-boton {
   outline: 3px solid var(--color-primario);
   outline-offset: 2px;
@@ -1052,14 +1034,14 @@ details.faq-item p {
   transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
 }
 
-/* ========== SELECTOR: Pseudoclase | Ejemplo: .menu-boton:hover | Qué hace: Cambia el fondo a color primario al pasar el cursor sobre el botón hamburguesa ========== */
+/* ========== SELECTOR: Pseudoclase | Ejemplo: .menu-boton:hover  ========== */
 .menu-boton:hover {
   background-color: var(--color-primario);
   color: #ffffff;
   border-color: var(--color-primario);
 }
 
-/* ========== SELECTOR: Pseudoclase | Ejemplo: .menu-toggle:checked | Qué hace: Aplica fondo carmesí primario al botón hamburguesa cuando el menú móvil está activo/abierto ========== */
+/* ========== SELECTOR: Pseudoclase | Ejemplo: .menu-toggle:checked  ========== */
 .menu-toggle:checked + .menu-boton {
   background-color: var(--color-primario);
   color: #ffffff;
@@ -1075,7 +1057,7 @@ details.faq-item p {
   padding-bottom: 12px;
 }
 
-/* ========== SELECTOR: Hermano general | Ejemplo: .menu-toggle:checked ~ .encabezado__panel | Qué hace: Despliega el panel del encabezado al marcarse el checkbox del botón hamburguesa sin JavaScript ========== */
+/* ========== SELECTOR: Hermano general | Ejemplo: .menu-toggle:checked ~ .encabezado__panel  ========== */
 .menu-toggle:checked ~ .encabezado__panel {
   display: flex;
 }
@@ -1088,7 +1070,7 @@ details.faq-item p {
   margin: 0;
 }
 
-/* ========== SELECTOR: Atributo | Ejemplo: input[type="search"] | Qué hace: Establece altura exacta de 44px, borde sólido de 2px, tipografía monoespaciada y evita desbordamientos con min-width: 0 ========== */
+/* ========== SELECTOR: Atributo | Ejemplo: input[type="search"]  ========== */
 .buscador input[type="search"] {
   flex: 1;
   min-width: 0;
@@ -1103,7 +1085,7 @@ details.faq-item p {
   font-size: 0.9rem;
 }
 
-/* ========== SELECTOR: Pseudoclase | Ejemplo: .buscador input[type="search"]:focus | Qué hace: Cambia el borde a color rojo primario al enfocar el campo de búsqueda sin alterar la altura de 44px ========== */
+/* ========== SELECTOR: Pseudoclase | Ejemplo: .buscador input[type="search"]:focus  ========== */
 .buscador input[type="search"]:focus {
   border-color: var(--color-primario);
   outline: none;
@@ -1128,7 +1110,7 @@ details.faq-item p {
   transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
 }
 
-/* ========== SELECTOR: Pseudoclase | Ejemplo: .buscador button:hover | Qué hace: Cambia el fondo del botón de búsqueda a rojo primario al pasar el cursor ========== */
+/* ========== SELECTOR: Pseudoclase | Ejemplo: .buscador button:hover  ========== */
 .buscador button:hover {
   background-color: var(--color-primario);
   border-color: var(--color-primario);
@@ -1141,7 +1123,7 @@ details.faq-item p {
   width: 100%;
 }
 
-/* ========== SELECTOR: Hijo directo | Ejemplo: .menu > ul | Qué hace: Aplica orientación en columna, eliminación de viñetas y reseteo de márgenes a la lista de navegación ========== */
+/* ========== SELECTOR: Hijo directo | Ejemplo: .menu > ul  ========== */
 .menu > ul {
   display: flex;
   flex-direction: column;
@@ -1170,14 +1152,14 @@ details.faq-item p {
   transition: color 0.2s ease, border-color 0.2s ease, background-color 0.2s ease;
 }
 
-/* ========== SELECTOR: Pseudoclase | Ejemplo: .menu a:hover | Qué hace: Resalta el enlace de navegación con color primario carmesí y borde inferior al pasar el cursor ========== */
+/* ========== SELECTOR: Pseudoclase | Ejemplo: .menu a:hover  ========== */
 .menu a:hover {
   color: var(--color-primario);
   border-bottom-color: var(--color-primario);
   background-color: var(--color-superficie-baja);
 }
 
-/* ========== SELECTOR: Atributo | Ejemplo: a[aria-current="page"] | Qué hace: Resalta el enlace de la página activa con color rojo primario y borde inferior de 3px ========== */
+/* ========== SELECTOR: Atributo | Ejemplo: a[aria-current="page"]  ========== */
 a[aria-current="page"] {
   color: var(--color-primario);
   border-bottom-color: var(--color-primario);
